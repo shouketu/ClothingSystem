@@ -40,33 +40,36 @@ namespace ClothingSystem.DAL.Impl
             });
         }
 
-        public List<GroupInfoDto> GetList()
+        public List<GroupInfoFullDto> GetList(params int[] ids)
         {
             return Connection(connection =>
             {
-                return connection.Query<GroupInfoDto>("select * from GroupInfo where isdel=0").ToList();
+                var where = "where isdel=0";
+                if (ids != null && ids.Length > 0)
+                    where += $" and id in ({string.Join(",", ids)})";
+                return connection.Query<GroupInfoFullDto>("select * from GroupInfo " + where).ToList();
             });
         }
 
-        public GroupInfoDto GetById(int id)
+        public GroupInfoFullDto GetById(int id)
         {
             return Connection(connection =>
             {
                 var where = " where id=@id and isdel=0";
                 var param = new { id };
                 var sql = $"select * from GroupInfo {where}";
-                return connection.QueryFirstOrDefault<GroupInfoDto>(sql, param);
+                return connection.QueryFirstOrDefault<GroupInfoFullDto>(sql, param);
             });
         }
 
-        public GroupInfoDto GetByTitle(string title)
+        public GroupInfoFullDto GetByTitle(string title)
         {
             return Connection(connection =>
             {
                 var where = " where title=@title and isdel=0";
                 var param = new { title };
                 var sql = $"select * from GroupInfo {where}";
-                return connection.QueryFirstOrDefault<GroupInfoDto>(sql, param);
+                return connection.QueryFirstOrDefault<GroupInfoFullDto>(sql, param);
             });
         }
 

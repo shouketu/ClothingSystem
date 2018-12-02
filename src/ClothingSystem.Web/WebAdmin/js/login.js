@@ -13,6 +13,10 @@
         }, false);
     });
 
+    $tool.request("get", "/api/Administrator/ImageCode", null, function (data) {
+        $("#imgCode").attr("src", data.Data);
+    }, false);
+
     // 验证码刷新
     $("#imgCode").on("click", function () {
         var $this = $(this);

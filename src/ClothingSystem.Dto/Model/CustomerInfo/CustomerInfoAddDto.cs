@@ -10,7 +10,7 @@ namespace ClothingSystem.Dto.Model
     /// <summary>
     /// 顾客信息添加模型
     /// </summary>
-    public class CustomerInfoAddDto
+    public class CustomerInfoAddDto : CreateDto
     {
         /// <summary>
         /// 名称

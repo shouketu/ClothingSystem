@@ -74,9 +74,30 @@ namespace ClothingSystem.Web.Controllers
         /// <param name="search">搜索对象</param>
         /// <returns></returns>
         [HttpPost]
-        public ResponseResult<PageResult<UserInfoDto>> SearchPage(UserInfoSearchDto search)
+        public ResponseResult<PageResult<UserInfoFullDto>> SearchPage(UserInfoSearchDto search)
         {
             return _userInfoService.SearchPage(search).Success();
+        }
+
+        /// <summary>
+        /// 获取所有用户信息
+        /// </summary>
+        /// <returns></returns>
+        [HttpPost]
+        public ResponseResult<List<UserInfoFullDto>> GetList()
+        {
+            return _userInfoService.GetList().Success();
+        }
+
+        /// <summary>
+        /// 根据Id获取用户信息
+        /// </summary>
+        /// <param name="id">主键Id</param>
+        /// <returns></returns>
+        [HttpPost]
+        public ResponseResult<UserInfoFullDto> Get(int id)
+        {
+            return _userInfoService.GetById(id).Success();
         }
 
         /// <summary>

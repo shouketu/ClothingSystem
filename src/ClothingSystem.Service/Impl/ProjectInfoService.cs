@@ -50,7 +50,7 @@ namespace ClothingSystem.Service.Impl
             AdminVerify(model, "Verify");
 
             if (string.IsNullOrEmpty(model.Title))
-                Exception("Verify.UserName", "用户名不能为空");
+                Exception("Verify.Title", "项目名称不能为空");
         }
 
         public List<ProjectInfoDto> GetList()

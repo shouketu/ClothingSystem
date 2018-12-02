@@ -16,11 +16,15 @@ namespace ClothingSystem.Service.Impl
     public class CustomerInfoService : BaseService, ICustomerInfoService
     {
         private readonly ICustomerInfoDal _customerInfoDal;
+        private readonly IGroupInfoDal _groupInfoDal;
+        private readonly IUserInfoDal _userInfoDal;
         private readonly IUserInfoService _userInfoService;
 
         public CustomerInfoService(AuthUserDto user) : base(user)
         {
             _customerInfoDal = new CustomerInfoDal(user);
+            _groupInfoDal = new GroupInfoDal(user);
+            _userInfoDal = new UserInfoDal(user);
             _userInfoService = new UserInfoService(user);
         }
         public bool Insert(CustomerInfoAddDto model)
@@ -56,7 +60,8 @@ namespace ClothingSystem.Service.Impl
             return _customerInfoDal.Update(model) > 0;
         }
 
-        public PageResult<CustomerInfoDto> SearchPage(CustomerSearchDto search)
+        [Obsolete]
+        public PageResult<CustomerInfoFullDto> SearchPage_Old(CustomerSearchDto search)
         {
             //var user = _userInfoService.GetBySession();
             //if (user == null)
@@ -67,6 +72,37 @@ namespace ClothingSystem.Service.Impl
             search.PageIndex = search.PageIndex < 1 ? 1 : search.PageIndex;
             //search.UserId = user.Id;
             return _customerInfoDal.SearchPage(search);
+        }
+
+        public PageResult<CustomerInfoFullDto> SearchPage(CustomerSearchDto search)
+        {
+            search = search ?? new CustomerSearchDto();
+            search.PageSize = search.PageSize < 1 ? 50 : search.PageSize;
+            search.PageIndex = search.PageIndex < 1 ? 1 : search.PageIndex;
+            var res = _customerInfoDal.SearchPage(search);
+            if (res.Items.Count > 0)
+            {
+                var list = _groupInfoDal.GetList(res.Items.Select(p => p.GroupId).ToArray());
+                var userinfos = _userInfoDal.GetList(res.Items.Select(p => p.UserId).ToArray());
+                foreach (var item in res.Items)
+                {
+                    item.GroupInfo = list.Find(p => p.Id == item.GroupId);
+                    item.UserInfo = userinfos.Find(p => p.Id == item.UserId);
+                }
+            }
+            return res;
+        }
+
+        public CustomerInfoFullDto GetById(int id)
+        {
+            AdminVerify(id, "GetById");
+            var res = _customerInfoDal.GetById(id);
+            if (res != null)
+            { 
+                res.GroupInfo = _groupInfoDal.GetById(res.GroupId);
+                res.UserInfo = _userInfoDal.GetById(res.UserId);
+            }
+            return res;
         }
 
         public bool Deletes(params int[] ids)

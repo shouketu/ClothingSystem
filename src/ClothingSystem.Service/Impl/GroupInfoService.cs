@@ -17,10 +17,12 @@ namespace ClothingSystem.Service.Impl
     public class GroupInfoService : BaseService, IGroupInfoService
     {
         private readonly IGroupInfoDal _groupInfoDal;
+        private readonly IProjectInfoDal _projectInfoDal;
 
         public GroupInfoService(AuthUserDto user) : base(user)
         {
             _groupInfoDal = new GroupInfoDal(user);
+            _projectInfoDal = new ProjectInfoDal(user);
         }
 
         public bool Insert(GroupInfoAddDto model)
@@ -50,14 +52,23 @@ namespace ClothingSystem.Service.Impl
             AdminVerify(model, "Verify");
 
             if (string.IsNullOrEmpty(model.Title))
-                Exception("Verify.UserName", "用户名不能为空");
+                Exception("Verify.Title", "分组名称不能为空");
         }
 
-        public List<GroupInfoDto> GetList()
+        public List<GroupInfoFullDto> GetList()
         {
             AdminVerify(0, "GetList");
-            return _groupInfoDal.GetList();
-        }
+            var res = _groupInfoDal.GetList();
+            if (res.Count > 0)
+            {
+                var projectList = _projectInfoDal.GetList(res.Select(p => p.ProjectId).ToArray());
+                res.ForEach(p =>
+                {
+                    p.ProjectInfo = projectList.Find(pj => pj.Id == p.ProjectId);
+                });
+            }
+            return res;
+        } 
 
         public bool Deletes(params int[] ids)
         {
@@ -68,10 +79,13 @@ namespace ClothingSystem.Service.Impl
             return _groupInfoDal.Deletes(ids) > 0;
         }
 
-        public GroupInfoDto GetById(int id)
+        public GroupInfoFullDto GetById(int id)
         {
             AdminVerify(id, "GetById");
-            return _groupInfoDal.GetById(id);
+            var res = _groupInfoDal.GetById(id);
+            if (res != null)
+                res.ProjectInfo = _projectInfoDal.GetById(res.ProjectId);
+            return res;
         }
     }
 }

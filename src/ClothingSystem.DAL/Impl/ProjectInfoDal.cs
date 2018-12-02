@@ -40,11 +40,14 @@ namespace ClothingSystem.DAL.Impl
             });
         }
 
-        public List<ProjectInfoDto> GetList()
+        public List<ProjectInfoDto> GetList(params int[] ids)
         {
             return Connection(connection =>
             {
-                return connection.Query<ProjectInfoDto>("select * from ProjectInfo where isdel=0").ToList();
+                var where = "where isdel=0";
+                if (ids != null && ids.Length > 0)
+                    where += $" and id in ({string.Join(",", ids)})";
+                return connection.Query<ProjectInfoDto>("select * from ProjectInfo "+ where).ToList();
             });
         }
 

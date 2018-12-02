@@ -41,14 +41,18 @@ namespace ClothingSystem.DAL.Impl
             });
         }
 
-        public PageResult<CustomerInfoDto> SearchPage(CustomerSearchDto search)
+        public PageResult<CustomerInfoFullDto> SearchPage(CustomerSearchDto search)
         {
             var where = GetUserWhere();
+            if (search.UserId.HasValue)
+                where += " and UserId=@UserId";
+            if (search.GroupId.HasValue)
+                where += " and GroupId=@GroupId";
             if (!string.IsNullOrEmpty(search.Name))
                 where += " and Name like @Name";
             var order = "order by jointime desc";
-            var param = new { Name = $"%{search.Name}%" };
-            return SearchPage<CustomerInfoDto>(search, where, order, "CustomerInfo", param: param);
+            var param = new { Name = $"%{search.Name}%", search.UserId, search.GroupId };
+            return SearchPage<CustomerInfoFullDto>(search, where, order, "CustomerInfo", param: param);
             //return Connection(connection =>
             //{
             // var where = "where UserId=@UserId";
@@ -66,7 +70,7 @@ namespace ClothingSystem.DAL.Impl
             //});
         }
 
-        public CustomerInfoDto GetById(int id)
+        public CustomerInfoFullDto GetById(int id)
         {
             return Connection(connection =>
             {
@@ -74,7 +78,7 @@ namespace ClothingSystem.DAL.Impl
                 where += " and id=@id";
                 var param = new { id, _user.UserId };
                 var sql = $"select * from CustomerInfo {where}";
-                return connection.QueryFirstOrDefault<CustomerInfoDto>(sql, param);
+                return connection.QueryFirstOrDefault<CustomerInfoFullDto>(sql, param);
             });
         }
 

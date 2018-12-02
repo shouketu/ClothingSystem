@@ -29,6 +29,27 @@ namespace ClothingSystem.Service.Interface
         string Login(LoginRequestDto request);
 
         /// <summary>
+        /// 搜索分页
+        /// </summary>
+        /// <param name="search">搜索对象</param>
+        /// <returns></returns>
+        PageResult<UserInfoFullDto> SearchPage(UserInfoSearchDto search);
+
+        /// <summary>
+        /// 获取列表
+        /// </summary>
+        /// <param name="ids">主键Id集合</param>
+        /// <returns></returns>
+        List<UserInfoFullDto> GetList(params int[] ids);
+
+        /// <summary>
+        /// 根据Id获取对象
+        /// </summary>
+        /// <param name="id">主键Id</param>
+        /// <returns></returns>
+        UserInfoFullDto GetById(int id);
+
+        /// <summary>
         /// 插入用户信息
         /// </summary>
         /// <param name="model">用户对象</param>
@@ -41,13 +62,6 @@ namespace ClothingSystem.Service.Interface
         /// <param name="model">用户对象</param>
         /// <returns></returns>
         bool Update(UserInfoEditDto model);
-
-        /// <summary>
-        /// 搜索分页
-        /// </summary>
-        /// <param name="search">搜索对象</param>
-        /// <returns></returns>
-        PageResult<UserInfoDto> SearchPage(UserInfoSearchDto search);
 
         /// <summary>
         /// 批量删除

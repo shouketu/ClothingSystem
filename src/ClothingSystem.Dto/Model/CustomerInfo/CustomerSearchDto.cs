@@ -12,6 +12,16 @@ namespace ClothingSystem.Dto.Model
     public class CustomerSearchDto : Page.PageParameter
     {
         /// <summary>
+        /// 用户Id
+        /// </summary>
+        public int? UserId { get; set; }
+
+        /// <summary>
+        /// 分组Id
+        /// </summary>
+        public int? GroupId { get; set; }
+
+        /// <summary>
         /// 名称搜索
         /// </summary>
         public string Name { get; set; }

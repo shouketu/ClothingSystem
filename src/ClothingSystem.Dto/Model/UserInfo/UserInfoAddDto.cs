@@ -9,7 +9,7 @@ namespace ClothingSystem.Dto.Model
     /// <summary>
     /// 用户信息添加模型
     /// </summary>
-    public class UserInfoAddDto
+    public class UserInfoAddDto : AdminBaseDto
     {
         /// <summary>
         /// 用户名

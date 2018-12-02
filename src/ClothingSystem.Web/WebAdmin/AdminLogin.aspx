@@ -12,8 +12,8 @@
 </head>
 <body>
     <div>
-        <input type="text" id="txtUser" placeholder="用户名" />
-        <input type="text" id="txtPwd" placeholder="密码" />
+        <input type="text" id="txtUser" value="admin" placeholder="用户名" />
+        <input type="text" id="txtPwd" value="admin" placeholder="密码" />
         <input type="text" id="txtCode" placeholder="验证码" />
         <input type="button" id="btnLogin" value="登录" />
         <img src="https://www.baidu.com/img/baidu_jgylogo3.gif" id="imgCode" />

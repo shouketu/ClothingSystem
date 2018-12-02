@@ -32,7 +32,14 @@ namespace ClothingSystem.Service.Interface
         /// </summary>
         /// <param name="search">搜索对象</param>
         /// <returns></returns>
-        PageResult<CustomerInfoDto> SearchPage(CustomerSearchDto search);
+        PageResult<CustomerInfoFullDto> SearchPage(CustomerSearchDto search);
+
+        /// <summary>
+        /// 根据Id获取对象
+        /// </summary>
+        /// <param name="id">主键Id</param>
+        /// <returns></returns>
+        CustomerInfoFullDto GetById(int id);
 
         /// <summary>
         /// 批量删除

@@ -17,14 +17,21 @@ namespace ClothingSystem.DAL.Interface
         /// </summary>
         /// <param name="id">主键Id</param>
         /// <returns></returns>
-        GroupInfoDto GetById(int id);
+        GroupInfoFullDto GetById(int id);
 
         /// <summary>
         /// 根据标题获取对象
         /// </summary>
         /// <param name="title">标题</param>
         /// <returns></returns>
-        GroupInfoDto GetByTitle(string title);
+        GroupInfoFullDto GetByTitle(string title);
+
+        /// <summary>
+        /// 获取所有分组
+        /// </summary>
+        /// <param name="ids">主键Id集合</param>
+        /// <returns></returns>
+        List<GroupInfoFullDto> GetList(params int[] ids);
 
         /// <summary>
         /// 插入
@@ -32,13 +39,7 @@ namespace ClothingSystem.DAL.Interface
         /// <param name="model">对象</param>
         /// <returns></returns>
         int Insert(GroupInfoDto model);
-
-        /// <summary>
-        /// 获取所有项目
-        /// </summary>
-        /// <returns></returns>
-        List<GroupInfoDto> GetList();
-
+        
         /// <summary>
         /// 更新
         /// </summary>

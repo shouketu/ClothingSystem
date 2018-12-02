@@ -33,13 +33,21 @@ namespace ClothingSystem.DAL.Interface
         /// </summary>
         /// <param name="id">主键Id</param>
         /// <returns></returns>
-        UserInfoDto GetById(int id);
+        UserInfoFullDto GetById(int id);
 
         /// <summary>
         /// 获取列表
         /// </summary>
+        /// <param name="ids">主键Id集合</param>
         /// <returns></returns>
-        List<UserInfoDto> GetList();
+        List<UserInfoFullDto> GetList(params int[] ids);
+
+        /// <summary>
+        /// 搜索分页
+        /// </summary>
+        /// <param name="search">搜索对象</param>
+        /// <returns></returns>
+        PageResult<UserInfoFullDto> SearchPage(UserInfoSearchDto search);
 
         /// <summary>
         /// 插入用户
@@ -55,14 +63,7 @@ namespace ClothingSystem.DAL.Interface
         /// <param name="userPwd">新密码</param>
         /// <returns></returns>
         int Update(int id, string userPwd);
-
-        /// <summary>
-        /// 搜索分页
-        /// </summary>
-        /// <param name="search">搜索对象</param>
-        /// <returns></returns>
-        PageResult<UserInfoDto> SearchPage(UserInfoSearchDto search);
-
+        
         /// <summary>
         /// 更新用户信息
         /// </summary>

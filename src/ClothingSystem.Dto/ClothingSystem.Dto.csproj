@@ -48,6 +48,8 @@
     <Compile Include="Enum\UserTypeEnum.cs" />
     <Compile Include="Model\Administrator\AdministratorAddDto.cs" />
     <Compile Include="Model\Administrator\AdministratorDto.cs" />
+    <Compile Include="Model\Common\AdminBaseDto.cs" />
+    <Compile Include="Model\Common\CreateDto.cs" />
     <Compile Include="Model\ConsumptionRecrod\ConsumptionRecrodAddDto.cs" />
     <Compile Include="Model\ConsumptionRecrod\ConsumptionRecrodDto.cs" />
     <Compile Include="Model\ConsumptionRecrod\ConsumptionRecrodEditDto.cs" />
@@ -55,10 +57,12 @@
     <Compile Include="Model\CustomerInfo\CustomerInfoAddDto.cs" />
     <Compile Include="Model\CustomerInfo\CustomerInfoDto.cs" />
     <Compile Include="Model\CustomerInfo\CustomerInfoEditDto.cs" />
+    <Compile Include="Model\CustomerInfo\CustomerInfoFullDto.cs" />
     <Compile Include="Model\CustomerInfo\CustomerSearchDto.cs" />
     <Compile Include="Model\GroupInfo\GroupInfoAddDto.cs" />
     <Compile Include="Model\GroupInfo\GroupInfoDto.cs" />
     <Compile Include="Model\GroupInfo\GroupInfoEditDto.cs" />
+    <Compile Include="Model\GroupInfo\GroupInfoFullDto.cs" />
     <Compile Include="Model\LoginRecrodDto.cs" />
     <Compile Include="Model\LoginRequestDto.cs" />
     <Compile Include="Model\LoginResponseDto.cs" />
@@ -69,6 +73,7 @@
     <Compile Include="Model\UserInfo\UserInfoAddDto.cs" />
     <Compile Include="Model\UserInfo\UserInfoDto.cs" />
     <Compile Include="Model\UserInfo\UserInfoEditDto.cs" />
+    <Compile Include="Model\UserInfo\UserInfoFullDto.cs" />
     <Compile Include="Model\UserInfo\UserInfoSearchDto.cs" />
     <Compile Include="Page\PageParameter.cs" />
     <Compile Include="Page\PageResult.cs" />

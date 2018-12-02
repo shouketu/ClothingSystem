@@ -27,23 +27,26 @@ namespace ClothingSystem.DAL.Impl
             });
         }
 
-        public UserInfoDto GetById(int id)
+        public UserInfoFullDto GetById(int id)
         {
             return Connection(connection =>
             {
-                return connection.QueryFirstOrDefault<UserInfoDto>("select * from userinfo where id=@id and isdel=0", new { id });
+                return connection.QueryFirstOrDefault<UserInfoFullDto>("select * from userinfo where id=@id and isdel=0", new { id });
             });
         }
 
-        public List<UserInfoDto> GetList()
+        public List<UserInfoFullDto> GetList(params int[] ids)
         {
             return Connection(connection =>
             {
-                return connection.Query<UserInfoDto>("select * from userinfo where isdel=0").ToList();
+                var where = "where isdel=0";
+                if (ids != null && ids.Length > 0)
+                    where += $" and id in ({string.Join(",", ids)})";
+                return connection.Query<UserInfoFullDto>("select * from userinfo " + where).ToList();
             });
         }
 
-        public PageResult<UserInfoDto> SearchPage(UserInfoSearchDto search)
+        public PageResult<UserInfoFullDto> SearchPage(UserInfoSearchDto search)
         {
             var where = " where isdel=0";
             if (search.GroupId.HasValue)
@@ -52,7 +55,7 @@ namespace ClothingSystem.DAL.Impl
                 where += " and UserName like @UserName";
             var order = "order by id desc";
             var param = new { Name = $"%{search.UserName}%", search.GroupId };
-            return SearchPage<UserInfoDto>(search, where, order, "userinfo", param: param);
+            return SearchPage<UserInfoFullDto>(search, where, order, "userinfo", param: param);
         }
 
         public int Insert(UserInfoDto model)

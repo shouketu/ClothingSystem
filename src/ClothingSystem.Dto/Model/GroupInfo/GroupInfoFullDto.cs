@@ -7,13 +7,18 @@ using System.Threading.Tasks;
 namespace ClothingSystem.Dto.Model
 {
     /// <summary>
-    /// 项目信息添加模型
+    /// 分组信息所有数据模型
     /// </summary>
-    public class ProjectInfoAddDto : AdminBaseDto
+    public class GroupInfoFullDto : GroupInfoDto
     {
+        /// <summary>
+        /// 项目对象
+        /// </summary>
+        public ProjectInfoDto ProjectInfo { get; set; }
+
         /// <summary>
         /// 项目名称
         /// </summary>
-        public string Title { get; set; }
+        public string ProjectTtile => ProjectInfo?.Title;
     }
 }

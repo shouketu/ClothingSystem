@@ -36,8 +36,9 @@ namespace ClothingSystem.DAL.Interface
         /// <summary>
         /// 获取所有项目
         /// </summary>
+        /// <param name="ids">主键Id集合</param>
         /// <returns></returns>
-        List<ProjectInfoDto> GetList();
+        List<ProjectInfoDto> GetList(params int[] ids);
 
         /// <summary>
         /// 更新

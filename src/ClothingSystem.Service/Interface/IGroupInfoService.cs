@@ -17,7 +17,13 @@ namespace ClothingSystem.Service.Interface
         /// </summary>
         /// <param name="id">主键Id</param>
         /// <returns></returns>
-        GroupInfoDto GetById(int id);
+        GroupInfoFullDto GetById(int id);
+
+        /// <summary>
+        /// 获取所有项目
+        /// </summary>
+        /// <returns></returns>
+        List<GroupInfoFullDto> GetList();
 
         /// <summary>
         /// 插入
@@ -25,12 +31,6 @@ namespace ClothingSystem.Service.Interface
         /// <param name="model">对象</param>
         /// <returns></returns>
         bool Insert(GroupInfoAddDto model);
-
-        /// <summary>
-        /// 获取所有项目
-        /// </summary>
-        /// <returns></returns>
-        List<GroupInfoDto> GetList();
 
         /// <summary>
         /// 更新

@@ -9,7 +9,7 @@ namespace ClothingSystem.Dto.Model
     /// <summary>
     /// 消费记录添加模型
     /// </summary>
-    public class ConsumptionRecrodAddDto
+    public class ConsumptionRecrodAddDto : CreateDto
     {
         /// <summary>
         /// 顾客Id

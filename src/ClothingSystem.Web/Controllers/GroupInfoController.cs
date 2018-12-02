@@ -50,10 +50,11 @@ namespace ClothingSystem.Web.Controllers
         /// </summary>
         /// <returns></returns>
         [HttpPost]
-        public ResponseResult<List<GroupInfoEditDto>> GetList()
+        public ResponseResult<List<GroupInfoFullDto>> GetList()
         {
             var res = _groupInfoService.GetList();
-            return res.Clone<List<GroupInfoEditDto>>().Success();
+            //return res.Clone<List<GroupInfoEditDto>>().Success();
+            return res.Success();
         }
 
         /// <summary>
@@ -62,7 +63,7 @@ namespace ClothingSystem.Web.Controllers
         /// <param name="id">主键Id</param>
         /// <returns></returns>
         [HttpPost]
-        public ResponseResult<GroupInfoDto> Get([FromUri]int id)
+        public ResponseResult<GroupInfoFullDto> Get([FromUri]int id)
         {
             return _groupInfoService.GetById(id).Success();
         }

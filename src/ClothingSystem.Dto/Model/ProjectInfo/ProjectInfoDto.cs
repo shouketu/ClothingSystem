@@ -11,19 +11,6 @@ namespace ClothingSystem.Dto.Model
     /// </summary>
     public class ProjectInfoDto: ProjectInfoEditDto
     { 
-        /// <summary>
-        /// 管理员Id
-        /// </summary>
-        public int AdminId { get; set; }
-
-        /// <summary>
-        /// 管理员名称
-        /// </summary>
-        public string AdminName { get; set; }
-
-        /// <summary>
-        /// 管理员名称
-        /// </summary>
-        public DateTime CreateTime { get; set; }
+        
     }
 }

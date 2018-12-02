@@ -17,12 +17,14 @@ namespace ClothingSystem.Service.Impl
     public class UserInfoService : BaseService, IUserInfoService
     {
         private readonly IUserInfoDal _userInfoDal;
+        private readonly IGroupInfoDal _groupInfoDal;
         private readonly ILoginRecrodService _loginRecrodService;
 
         public UserInfoService(AuthUserDto user) : base(user)
         {
             _userInfoDal = new UserInfoDal(user);
             _loginRecrodService = new LoginRecrodService(user);
+            _groupInfoDal = new GroupInfoDal(user);
         }
 
         [Obsolete]
@@ -66,6 +68,40 @@ namespace ClothingSystem.Service.Impl
 
             var token = LoginAfter(model);
             return token;
+        }
+
+        public PageResult<UserInfoFullDto> SearchPage(UserInfoSearchDto search)
+        {
+            AdminVerify(search, "SearchPage");
+
+            search = search ?? new UserInfoSearchDto();
+            search.PageSize = search.PageSize < 1 ? 50 : search.PageSize;
+            search.PageIndex = search.PageIndex < 1 ? 1 : search.PageIndex;
+            var res = _userInfoDal.SearchPage(search);
+            if (res.Items.Count > 0)
+            {
+                var list = _groupInfoDal.GetList(res.Items.Select(p => p.GroupId).ToArray());
+                foreach (var item in res.Items)
+                {
+                    item.GroupInfo = list.Find(p => p.Id == item.GroupId);
+                }
+            }
+            return res;
+        }
+
+        public List<UserInfoFullDto> GetList(params int[] ids)
+        {
+            AdminVerify(0, "GetList");
+            return _userInfoDal.GetList(ids);
+        }
+
+        public UserInfoFullDto GetById(int id)
+        {
+            AdminVerify(id, "GetById");
+            var res = _userInfoDal.GetById(id);
+            if (res != null)
+                res.GroupInfo = _groupInfoDal.GetById(res.GroupId);
+            return res;
         }
 
         public bool Insert(UserInfoAddDto model)
@@ -124,17 +160,7 @@ namespace ClothingSystem.Service.Impl
             ContextHelper.WriteCookie(Constant.UserCookieKey, token);
             return token;
         }
-
-        public PageResult<UserInfoDto> SearchPage(UserInfoSearchDto search)
-        {
-            AdminVerify(search, "SearchPage");
-
-            search = search ?? new UserInfoSearchDto();
-            search.PageSize = search.PageSize < 1 ? 50 : search.PageSize;
-            search.PageIndex = search.PageIndex < 1 ? 1 : search.PageIndex;
-            return _userInfoDal.SearchPage(search);
-        }
-
+        
         public bool Deletes(params int[] ids)
         {
             AdminVerify(ids, "Deletes");
