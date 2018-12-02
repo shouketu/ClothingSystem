@@ -28,7 +28,7 @@ namespace ClothingSystem.Web.WebPage
             {
                 _user = ContextHelper.GetByAdminCookieKey();
                 if (_user == null)
-                    Redirect("http://baidu.com");   // 管理员
+                    Redirect("/webadmin/adminlogin.aspx");   // 管理员
             }
         }
 

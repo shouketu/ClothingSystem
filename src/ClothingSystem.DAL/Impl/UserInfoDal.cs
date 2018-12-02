@@ -2,6 +2,7 @@
 using ClothingSystem.DAL.Interface;
 using ClothingSystem.Dto;
 using ClothingSystem.Dto.Model;
+using ClothingSystem.Dto.Page;
 using Dapper;
 using System;
 using System.Collections.Generic;
@@ -17,19 +18,12 @@ namespace ClothingSystem.DAL.Impl
         {
 
         }
-        public bool ExistByNameAndPwd(string userName, string userPwd)
-        {
-            return Connection(connection =>
-            {
-                return connection.ExecuteScalar<int>("select count(1) from userinfo where userName=@userName and userPwd=@userPwd", new { userName, userPwd }) > 0;
-            });
-        }
 
         public UserInfoDto GetByNameAndPwd(string userName, string userPwd)
         {
             return Connection(connection =>
             {
-                return connection.QueryFirstOrDefault<UserInfoDto>("select * from userinfo where userName=@userName and userPwd=@userPwd", new { userName, userPwd });
+                return connection.QueryFirstOrDefault<UserInfoDto>("select * from userinfo where userName=@userName and userPwd=@userPwd and isdel=0", new { userName, userPwd });
             });
         }
 
@@ -37,7 +31,7 @@ namespace ClothingSystem.DAL.Impl
         {
             return Connection(connection =>
             {
-                return connection.QueryFirstOrDefault<UserInfoDto>("select * from userinfo where id=@id", new { id });
+                return connection.QueryFirstOrDefault<UserInfoDto>("select * from userinfo where id=@id and isdel=0", new { id });
             });
         }
 
@@ -45,8 +39,20 @@ namespace ClothingSystem.DAL.Impl
         {
             return Connection(connection =>
             {
-                return connection.Query<UserInfoDto>("select * from userinfo").ToList();
+                return connection.Query<UserInfoDto>("select * from userinfo where isdel=0").ToList();
             });
+        }
+
+        public PageResult<UserInfoDto> SearchPage(UserInfoSearchDto search)
+        {
+            var where = " where isdel=0";
+            if (search.GroupId.HasValue)
+                where += " and GroupId like @GroupId";
+            if (!string.IsNullOrEmpty(search.UserName))
+                where += " and UserName like @UserName";
+            var order = "order by id desc";
+            var param = new { Name = $"%{search.UserName}%", search.GroupId };
+            return SearchPage<UserInfoDto>(search, where, order, "userinfo", param: param);
         }
 
         public int Insert(UserInfoDto model)
@@ -83,8 +89,13 @@ namespace ClothingSystem.DAL.Impl
         {
             return Connection(connection =>
             {
-                return connection.QueryFirstOrDefault<UserInfoDto>("select * from userinfo where userName=@userName", new { userName });
+                return connection.QueryFirstOrDefault<UserInfoDto>("select * from userinfo where userName=@userName and isdel=0", new { userName });
             });
+        }
+
+        public int Deletes(params int[] ids)
+        {
+            return Deletes("userinfo", ids);
         }
     }
 }

@@ -1,6 +1,7 @@
 ﻿using ClothingSystem.Common;
 using ClothingSystem.Dto.Enum;
 using ClothingSystem.Dto.Model;
+using ClothingSystem.Dto.Page;
 using ClothingSystem.Service.Impl;
 using ClothingSystem.Service.Interface;
 using System;
@@ -65,6 +66,27 @@ namespace ClothingSystem.Web.Controllers
         public ResponseResult<bool> Edit([FromBody]UserInfoEditDto model)
         {
             return _userInfoService.Update(model).Success();
+        }
+
+        /// <summary>
+        /// 搜索用户信息
+        /// </summary>
+        /// <param name="search">搜索对象</param>
+        /// <returns></returns>
+        [HttpPost]
+        public ResponseResult<PageResult<UserInfoDto>> SearchPage(UserInfoSearchDto search)
+        {
+            return _userInfoService.SearchPage(search).Success();
+        }
+
+        /// <summary>
+        /// 删除用户信息
+        /// </summary>
+        /// <returns></returns>
+        [HttpPost]
+        public ResponseResult<bool> Deletes(int[] ids)
+        {
+            return _userInfoService.Deletes(ids).Success();
         }
 
         #region 扩展

@@ -6,46 +6,46 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ClothingSystem.DAL.Interface
+namespace ClothingSystem.Service.Interface
 {
     /// <summary>
-    /// 顾客信息操作数据
+    /// 消费记录服务
     /// </summary>
-    public interface ICustomerInfoDal
+    public interface IConsumptionRecrodService
     {
         /// <summary>
-        /// 插入顾客
+        /// 插入消费记录
         /// </summary>
         /// <param name="model">对象</param>
         /// <returns></returns>
-        int Insert(CustomerInfoDto model);
+        bool Insert(ConsumptionRecrodAddDto model);
 
         /// <summary>
-        /// 编辑顾客
+        /// 编辑消费记录
         /// </summary>
         /// <param name="model">对象</param>
         /// <returns></returns>
-        int Update(CustomerInfoEditDto model);
+        bool Update(ConsumptionRecrodEditDto model);
 
         /// <summary>
         /// 搜索分页
         /// </summary>
         /// <param name="search">搜索对象</param>
         /// <returns></returns>
-        PageResult<CustomerInfoDto> SearchPage(CustomerSearchDto search);
+        PageResult<ConsumptionRecrodDto> SearchPage(ConsumptionRecrodSearchDto search);
 
         /// <summary>
         /// 根据Id获取对象
         /// </summary>
         /// <param name="id">主键Id</param>
         /// <returns></returns>
-        CustomerInfoDto GetById(int id);
+        ConsumptionRecrodDto GetById(int id);
 
         /// <summary>
         /// 批量删除
         /// </summary>
         /// <param name="ids">主键Id数组</param>
         /// <returns></returns>
-        int Deletes(params int[] ids);
+        bool Deletes(params int[] ids);
     }
 }

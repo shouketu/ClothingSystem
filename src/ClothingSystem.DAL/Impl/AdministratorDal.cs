@@ -18,19 +18,11 @@ namespace ClothingSystem.DAL.Impl
         {
         }
 
-        public bool ExistByNameAndPwd(string adminName, string adminPwd)
-        {
-            return Connection(connection => 
-            {
-                 return connection.ExecuteScalar<int>("select count(1) from administrator where adminName=@adminName and adminPwd=@adminPwd", new { adminName, adminPwd }) > 0;
-            });
-        }
-
         public AdministratorDto GetByNameAndPwd(string adminName, string adminPwd)
         {
             return Connection(connection =>
             {
-                return connection.QueryFirstOrDefault<AdministratorDto>("select * from administrator where adminName=@adminName and adminPwd=@adminPwd", new { adminName, adminPwd });
+                return connection.QueryFirstOrDefault<AdministratorDto>("select * from administrator where adminName=@adminName and adminPwd=@adminPwd and isdel=0", new { adminName, adminPwd });
             });
         }
 
@@ -38,7 +30,7 @@ namespace ClothingSystem.DAL.Impl
         {
             return Connection(connection =>
             {
-                return connection.QueryFirstOrDefault<AdministratorDto>("select * from administrator where adminName=@adminName", new { adminName });
+                return connection.QueryFirstOrDefault<AdministratorDto>("select * from administrator where adminName=@adminName and isdel=0", new { adminName });
             });
         }
 
@@ -46,7 +38,7 @@ namespace ClothingSystem.DAL.Impl
         {
             return Connection(connection =>
             {
-                return connection.QueryFirstOrDefault<AdministratorDto>("select * from administrator where id=@id", new { id });
+                return connection.QueryFirstOrDefault<AdministratorDto>("select * from administrator where id=@id and isdel=0", new { id });
             });
         }
 
@@ -54,7 +46,7 @@ namespace ClothingSystem.DAL.Impl
         {
             return Connection(connection =>
             {
-                return connection.Query<AdministratorDto>("select * from administrator").ToList();
+                return connection.Query<AdministratorDto>("select * from administrator where isdel=0").ToList();
             });
         }
 
@@ -83,6 +75,11 @@ namespace ClothingSystem.DAL.Impl
                 var sql = "update administrator set adminPwd=@adminPwd where id=@id";
                 return connection.Execute(sql, new { id, adminPwd });
             });
+        }
+
+        public int Deletes(params int[] ids)
+        {
+            return Deletes("administrator", ids);
         }
     }
 }

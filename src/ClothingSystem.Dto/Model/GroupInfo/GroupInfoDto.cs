@@ -1,5 +1,4 @@
-﻿using ClothingSystem.Dto.Enum;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,22 +7,22 @@ using System.Threading.Tasks;
 namespace ClothingSystem.Dto.Model
 {
     /// <summary>
-    /// 顾客信息
+    /// 分组信息模型
     /// </summary>
-    public class CustomerInfoDto : CustomerInfoEditDto
+    public class GroupInfoDto : GroupInfoEditDto
     {
         /// <summary>
-        /// 创建用户Id
+        /// 管理员Id
         /// </summary>
-        public int CreateId { get; set; }
+        public int AdminId { get; set; }
 
         /// <summary>
-        /// 创建用户名称
+        /// 管理员名称
         /// </summary>
-        public string CreateName { get; set; }
+        public string AdminName { get; set; }
 
         /// <summary>
-        /// 创建时间
+        /// 管理员名称
         /// </summary>
         public DateTime CreateTime { get; set; }
     }

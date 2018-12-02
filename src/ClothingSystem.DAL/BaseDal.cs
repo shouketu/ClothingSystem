@@ -65,11 +65,19 @@ namespace ClothingSystem.DAL
             string where = null;
             if (isAddWhere)
                 where = " where";
-            if (_user.UserType ==  UserTypeEnum.Administrator)
-                where += " 1=1";
-            else
-                where += " UserId=" + _user.UserId;
+            where += " isdel=0 ";
+            if (_user.UserType ==  UserTypeEnum.UserInfo)
+                where += " and UserId=" + _user.UserId;
             return where;
+        }
+
+        protected int Deletes(string table, params int[] ids)
+        {
+            return Connection(connection =>
+            {
+                var sql = $"update {table} set isdel=1 where id in ({string.Join(",", ids)})";
+                return connection.Execute(sql);
+            });
         }
     }
 }

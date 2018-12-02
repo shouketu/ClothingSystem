@@ -33,5 +33,12 @@ namespace ClothingSystem.Service.Interface
         /// <param name="search">搜索对象</param>
         /// <returns></returns>
         PageResult<CustomerInfoDto> SearchPage(CustomerSearchDto search);
+
+        /// <summary>
+        /// 批量删除
+        /// </summary>
+        /// <param name="ids">主键Id数组</param>
+        /// <returns></returns>
+        bool Deletes(params int[] ids);
     }
 }

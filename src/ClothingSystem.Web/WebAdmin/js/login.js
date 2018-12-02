@@ -7,7 +7,7 @@
             "UserPwd": $("#txtPwd").val(),
             "ImgCode": $("#txtCode").val()
         };
-        $tool.request("post", "/api/UserInfo/Login", data, function (res) {
+        $tool.request("post", "/api/Administrator/Login", data, function (res) {
             alert("成功");
             location.reload();
         }, false);
@@ -16,7 +16,7 @@
     // 验证码刷新
     $("#imgCode").on("click", function () {
         var $this = $(this);
-        $tool.request("get", "/api/UserInfo/ImageCode", null, function (data) {
+        $tool.request("get", "/api/Administrator/ImageCode", null, function (data) {
             $this.attr("src", data.Data);
         }, false);
     });

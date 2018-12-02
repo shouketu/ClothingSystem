@@ -128,6 +128,10 @@
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="WebAdmin\js\index.js" />
+    <Content Include="WebAdmin\js\login.js" />
+    <Content Include="WebAdmin\AdminIndex.aspx" />
+    <Content Include="WebAdmin\AdminLogin.aspx" />
     <Content Include="Web\jquery-1.12.2.min.js" />
     <Content Include="Web\js\index.js" />
     <Content Include="Web\js\login.js" />
@@ -152,12 +156,18 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AdministratorController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
+    <Compile Include="Controllers\ConsumptionRecrodController.cs" />
     <Compile Include="Controllers\CustomerInfoController.cs" />
+    <Compile Include="Controllers\GroupInfoController.cs" />
+    <Compile Include="Controllers\ProjectInfoController.cs" />
     <Compile Include="Controllers\UserInfoController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="WebPage\AdminIndex.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
     <Compile Include="WebPage\AdminLogin.cs">
       <SubType>ASPXCodeBehind</SubType>
     </Compile>

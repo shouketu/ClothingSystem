@@ -45,5 +45,12 @@ namespace ClothingSystem.Service.Interface
         /// </summary>
         /// <returns></returns>
         List<AdministratorDto> GetList();
+
+        /// <summary>
+        /// 批量删除
+        /// </summary>
+        /// <param name="ids">主键Id数组</param>
+        /// <returns></returns>
+        bool Deletes(params int[] ids);
     }
 }

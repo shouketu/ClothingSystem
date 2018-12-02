@@ -46,11 +46,17 @@
   <ItemGroup>
     <Compile Include="BaseDal.cs" />
     <Compile Include="Impl\AdministratorDal.cs" />
+    <Compile Include="Impl\ConsumptionRecrodDal.cs" />
     <Compile Include="Impl\CustomerInfoDal.cs" />
+    <Compile Include="Impl\GroupInfoDal.cs" />
     <Compile Include="Impl\LoginRecrodDal.cs" />
+    <Compile Include="Impl\ProjectInfoDal.cs" />
     <Compile Include="Impl\UserInfoDal.cs" />
+    <Compile Include="Interface\IConsumptionRecrodDal.cs" />
     <Compile Include="Interface\ICustomerInfoDal.cs" />
+    <Compile Include="Interface\IGroupInfoDal.cs" />
     <Compile Include="Interface\ILoginRecrodDal.cs" />
+    <Compile Include="Interface\IProjectInfoDal.cs" />
     <Compile Include="Interface\IUserInfoDal.cs" />
     <Compile Include="Interface\IAdministratorDal.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

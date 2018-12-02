@@ -68,5 +68,12 @@ namespace ClothingSystem.Service.Impl
             //search.UserId = user.Id;
             return _customerInfoDal.SearchPage(search);
         }
+
+        public bool Deletes(params int[] ids)
+        {
+            if (ids == null || ids.Length < 1)
+                return true;
+            return _customerInfoDal.Deletes(ids) > 0;
+        }
     }
 }

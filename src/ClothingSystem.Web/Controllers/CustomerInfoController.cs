@@ -56,5 +56,15 @@ namespace ClothingSystem.Web.Controllers
             var res = _customerInfoService.SearchPage(search);
             return res.Clone<PageResult<CustomerInfoEditDto>>().Success();
         }
+
+        /// <summary>
+        /// 删除顾客
+        /// </summary>
+        /// <returns></returns>
+        [HttpPost]
+        public ResponseResult<bool> Deletes(int[] ids)
+        {
+            return _customerInfoService.Deletes(ids).Success();
+        }
     }
 }

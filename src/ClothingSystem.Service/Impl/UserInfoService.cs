@@ -4,6 +4,7 @@ using ClothingSystem.DAL.Interface;
 using ClothingSystem.Dto;
 using ClothingSystem.Dto.Enum;
 using ClothingSystem.Dto.Model;
+using ClothingSystem.Dto.Page;
 using ClothingSystem.Service.Interface;
 using System;
 using System.Collections.Generic;
@@ -96,11 +97,12 @@ namespace ClothingSystem.Service.Impl
 
         private void Verify(UserInfoAddDto model)
         {
-            if (_user.UserType == Common.UserTypeEnum.UserInfo)
-                Exception("Verify.UserType", "无法进行此操作");
+            AdminVerify(model, "Verify");
+            //if (_user.UserType == Common.UserTypeEnum.UserInfo)
+            //    Exception("Verify.UserType", "无法进行此操作");
 
-            if (model == null)
-                Exception("Verify.model", "参数不能为空");
+            //if (model == null)
+            //    Exception("Verify.model", "参数不能为空");
 
             if (string.IsNullOrEmpty(model.UserName))
                 Exception("Verify.UserName", "用户名不能为空");
@@ -123,9 +125,23 @@ namespace ClothingSystem.Service.Impl
             return token;
         }
 
-        private UserInfoDto GetBySession()
+        public PageResult<UserInfoDto> SearchPage(UserInfoSearchDto search)
         {
-            return ContextHelper.ReadSession(Constant.UserSessionKey) as UserInfoDto;
+            AdminVerify(search, "SearchPage");
+
+            search = search ?? new UserInfoSearchDto();
+            search.PageSize = search.PageSize < 1 ? 50 : search.PageSize;
+            search.PageIndex = search.PageIndex < 1 ? 1 : search.PageIndex;
+            return _userInfoDal.SearchPage(search);
+        }
+
+        public bool Deletes(params int[] ids)
+        {
+            AdminVerify(ids, "Deletes");
+
+            if (ids == null || ids.Length < 1)
+                return true;
+            return _userInfoDal.Deletes(ids) > 0;
         }
     }
 }

@@ -13,14 +13,6 @@ namespace ClothingSystem.DAL.Interface
     public interface IAdministratorDal
     {
         /// <summary>
-        /// 根据管理名称和密码判断是否存在
-        /// </summary>
-        /// <param name="adminName">管理名称</param>
-        /// <param name="adminPwd">密码</param>
-        /// <returns></returns>
-        bool ExistByNameAndPwd(string adminName, string adminPwd);
-
-        /// <summary>
         /// 根据管理名称和密码获取管理员信息
         /// </summary>
         /// <param name="adminName">账号</param>
@@ -71,5 +63,12 @@ namespace ClothingSystem.DAL.Interface
         /// <param name="adminPwd">新密码</param>
         /// <returns></returns>
         int Update(int id, string adminPwd);
+
+        /// <summary>
+        /// 批量删除
+        /// </summary>
+        /// <param name="ids">主键Id数组</param>
+        /// <returns></returns>
+        int Deletes(params int[] ids);
     }
 }

@@ -13,11 +13,6 @@ namespace ClothingSystem.Dto.Model
     public class CustomerInfoAddDto
     {
         /// <summary>
-        /// 创建用户类型
-        /// </summary>
-        public UserTypeEnum CreateType { get; set; }
-
-        /// <summary>
         /// 名称
         /// </summary>
         public string Name { get; set; }

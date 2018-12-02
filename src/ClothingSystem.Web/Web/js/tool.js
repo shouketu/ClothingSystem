@@ -9,11 +9,15 @@
         else
             return null;
     };
-    res.request = function (method, url, requestData, successBack, isAuth) {
+    res.request = function (method, url, requestData, successBack, isAuth, isAdmin) {
         var heads = { "Content-Type": "application/json;charset=utf-8" };
         isAuth = isAuth == null ? true : isAuth;
-        if (isAuth)
-            heads["Authorization"] = "Basic " + res.getCookie("usertoken");
+        if (isAuth) {
+            if (isAdmin)
+                heads["Authorization"] = "Basic " + res.getCookie("admintoken");
+            else
+                heads["Authorization"] = "Basic " + res.getCookie("usertoken");
+        }
         $.ajax({
             type: method,
             // contentType: 'application/json;charset=utf-8',

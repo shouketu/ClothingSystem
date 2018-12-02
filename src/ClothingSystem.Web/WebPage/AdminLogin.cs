@@ -12,7 +12,7 @@ namespace ClothingSystem.Web.WebPage
         {
             var user = ContextHelper.GetByAdminCookieKey();
             if (user != null)
-                Response.Redirect("http://baidu.com");  // 跳回首页
+                Response.Redirect("/webadmin/adminindex.aspx");  // 跳回首页
         }
     }
 }

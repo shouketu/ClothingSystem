@@ -42,12 +42,18 @@
   <ItemGroup>
     <Compile Include="BaseService.cs" />
     <Compile Include="Impl\AdministratorService.cs" />
+    <Compile Include="Impl\ConsumptionRecrodService.cs" />
     <Compile Include="Impl\CustomerInfoService.cs" />
+    <Compile Include="Impl\GroupInfoService.cs" />
     <Compile Include="Impl\LoginRecrodService.cs" />
+    <Compile Include="Impl\ProjectInfoService.cs" />
     <Compile Include="Impl\UserInfoService.cs" />
     <Compile Include="Interface\IAdministratorService.cs" />
+    <Compile Include="Interface\IConsumptionRecrodService.cs" />
     <Compile Include="Interface\ICustomerInfoService.cs" />
+    <Compile Include="Interface\IGroupInfoService.cs" />
     <Compile Include="Interface\ILoginRecrodService.cs" />
+    <Compile Include="Interface\IProjectInfoService.cs" />
     <Compile Include="Interface\IUserInfoService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

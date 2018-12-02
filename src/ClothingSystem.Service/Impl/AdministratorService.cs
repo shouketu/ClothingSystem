@@ -80,11 +80,13 @@ namespace ClothingSystem.Service.Impl
 
         public AdministratorDto GetById(int id)
         {
+            AdminVerify(0, "GetById");
             return _administratorDal.GetById(id);
         }
 
         public List<AdministratorDto> GetList()
         {
+            AdminVerify(0, "GetList");
             return _administratorDal.GetList();
         }
 
@@ -116,6 +118,15 @@ namespace ClothingSystem.Service.Impl
 
             ContextHelper.WriteCookie(Constant.AdminCookieKey, token);
             return token;
+        }
+
+        public bool Deletes(params int[] ids)
+        {
+            AdminVerify(ids, "Deletes");
+            if (ids.Contains(1))
+                Exception("Deletes.Administraotr", "Admin管理员不能删除");
+
+            return _administratorDal.Deletes(ids) > 0;
         }
     }
 }

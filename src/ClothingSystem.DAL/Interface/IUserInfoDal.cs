@@ -1,4 +1,5 @@
 ﻿using ClothingSystem.Dto.Model;
+using ClothingSystem.Dto.Page;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,14 +13,6 @@ namespace ClothingSystem.DAL.Interface
     /// </summary>
     public interface IUserInfoDal
     {
-        /// <summary>
-        /// 根据用户名和密码判断是否存在
-        /// </summary>
-        /// <param name="userName">用户名称</param>
-        /// <param name="userPwd">密码</param>
-        /// <returns></returns>
-        bool ExistByNameAndPwd(string userName, string userPwd);
-
         /// <summary>
         /// 根据用户名和密码获取对象
         /// </summary>
@@ -64,10 +57,24 @@ namespace ClothingSystem.DAL.Interface
         int Update(int id, string userPwd);
 
         /// <summary>
+        /// 搜索分页
+        /// </summary>
+        /// <param name="search">搜索对象</param>
+        /// <returns></returns>
+        PageResult<UserInfoDto> SearchPage(UserInfoSearchDto search);
+
+        /// <summary>
         /// 更新用户信息
         /// </summary>
         /// <param name="model">用户对象</param>
         /// <returns></returns>
         int Update(UserInfoEditDto model);
+
+        /// <summary>
+        /// 批量删除
+        /// </summary>
+        /// <param name="ids">主键Id数组</param>
+        /// <returns></returns>
+        int Deletes(params int[] ids);
     }
 }

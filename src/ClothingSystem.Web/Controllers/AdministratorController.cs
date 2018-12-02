@@ -77,6 +77,16 @@ namespace ClothingSystem.Web.Controllers
             return _administratorService.GetList().Success();
         }
 
+        /// <summary>
+        /// 删除管理员
+        /// </summary>
+        /// <returns></returns>
+        [HttpPost]
+        public ResponseResult<bool> Deletes(int[] ids)
+        {
+            return _administratorService.Deletes(ids).Success();
+        }
+
         #region 扩展
         /// <summary>
         /// 解密密码
@@ -110,7 +120,7 @@ namespace ClothingSystem.Web.Controllers
         {
             var res = ImgCodeHelper.Generate(codeLength, codeW, codeH);
             ContextHelper.WriteSession(Constant.AdminImgCodeKey, res.ImgCode);
-            return res.ImgCode.Success();
+            return res.FullImgBase64.Success();
         }
         #endregion
     }

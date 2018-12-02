@@ -36,6 +36,7 @@ namespace ClothingSystem.DAL.Impl
                 model.CreateId = _user.UserId;
                 model.CreateName = _user.UserName;
                 model.CreateType = (Dto.Enum.UserTypeEnum)((int)_user.UserType);
+                model.CreateTime = DateTime.Now;
                 return connection.Execute(sql, model);
             });
         }
@@ -71,10 +72,15 @@ namespace ClothingSystem.DAL.Impl
             {
                 var where = GetUserWhere();
                 where += " and id=@id";
-                var param = new { id, UserId = 0 };
+                var param = new { id, _user.UserId };
                 var sql = $"select * from CustomerInfo {where}";
-                return connection.QuerySingle<CustomerInfoDto>(sql, param);
+                return connection.QueryFirstOrDefault<CustomerInfoDto>(sql, param);
             });
+        }
+
+        public int Deletes(params int[] ids)
+        {
+            return Deletes("CustomerInfo", ids);
         }
     }
 }

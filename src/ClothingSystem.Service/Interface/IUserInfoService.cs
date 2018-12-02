@@ -1,5 +1,6 @@
 ﻿using ClothingSystem.Dto.Enum;
 using ClothingSystem.Dto.Model;
+using ClothingSystem.Dto.Page;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -40,5 +41,19 @@ namespace ClothingSystem.Service.Interface
         /// <param name="model">用户对象</param>
         /// <returns></returns>
         bool Update(UserInfoEditDto model);
+
+        /// <summary>
+        /// 搜索分页
+        /// </summary>
+        /// <param name="search">搜索对象</param>
+        /// <returns></returns>
+        PageResult<UserInfoDto> SearchPage(UserInfoSearchDto search);
+
+        /// <summary>
+        /// 批量删除
+        /// </summary>
+        /// <param name="ids">主键Id数组</param>
+        /// <returns></returns>
+        bool Deletes(params int[] ids);
     }
 }
