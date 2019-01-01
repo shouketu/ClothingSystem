@@ -1,22 +1,25 @@
-﻿var $tool = (function () {
+﻿var $lsjTool = (function () {
     var res = {};
     res.getCookie = function (name) {
         var arr, reg = new RegExp("(^| )" + name + "=([^;]*)(;|$)");
-
         if (arr = document.cookie.match(reg))
-
             return unescape(arr[2]);
         else
             return null;
     };
-    res.request = function (method, url, requestData, successBack, isAuth, isAdmin) {
+    return res;
+})();
+
+var $lsjHttp = (function () {
+    var res = {};
+    var request = function (method, url, requestData, successBack, isAuth, isAdmin) {
         var heads = { "Content-Type": "application/json;charset=utf-8" };
         isAuth = isAuth == null ? true : isAuth;
         if (isAuth) {
             if (isAdmin)
-                heads["Authorization"] = "Basic " + res.getCookie("admintoken");
+                heads["Authorization"] = "Basic " + $lsjTool.getCookie("admintoken");
             else
-                heads["Authorization"] = "Basic " + res.getCookie("usertoken");
+                heads["Authorization"] = "Basic " + $lsjTool.getCookie("usertoken");
         }
         $.ajax({
             type: method,
@@ -34,6 +37,20 @@
             },
         });
     };
+    res.userGet = function (url, successBack, isAuth) {
+        request("get", url, null, successBack, isAuth, false);
+    }
 
+    res.userPost = function (url, requestData, successBack, isAuth) {
+        request("post", url, requestData, successBack, isAuth, false);
+    }
+
+    res.adminGet = function (url, successBack, isAuth) {
+        request("get", url, null, successBack, isAuth, true);
+    }
+
+    res.adminPost = function (url, requestData, successBack, isAuth) {
+        request("post", url, requestData, successBack, isAuth, true);
+    }
     return res;
 })();

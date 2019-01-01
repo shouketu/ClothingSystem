@@ -132,12 +132,15 @@
     <Content Include="WebAdmin\js\login.js" />
     <Content Include="WebAdmin\AdminIndex.aspx" />
     <Content Include="WebAdmin\AdminLogin.aspx" />
+    <Content Include="Web\angular.min.js" />
+    <Content Include="Web\index.html" />
     <Content Include="Web\jquery-1.12.2.min.js" />
     <Content Include="Web\js\index.js" />
     <Content Include="Web\js\login.js" />
     <Content Include="Web\js\tool.js" />
     <Content Include="Web\UserIndex.aspx" />
     <Content Include="Web\UserLogin.aspx" />
+    <Content Include="Web\vue.min.js" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

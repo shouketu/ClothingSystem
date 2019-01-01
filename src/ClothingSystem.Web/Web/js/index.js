@@ -4,7 +4,7 @@
         "PageIndex": 2,
         "PageSize": 20
     };
-    $tool.request("post", "/api/CustomerInfo/SearchPage", data, function (res) {
+    $lsjHttp.userPost("/api/CustomerInfo/SearchPage", data, function (res) {
         var html = '';
         for (var i = 0; i < res.Data.Items.length; i++) {
             var item = res.Data.Items[i];
@@ -18,7 +18,7 @@
     // 登出
     $("#btnLogout").on("click", function () {
         var $this = $(this);
-        $tool.request("post", "/api/UserInfo/Logout", null, function (res) {
+        $lsjHttp.userPost("/api/UserInfo/Logout", null, function (res) {
             alert("成功");
         });
     });

@@ -7,20 +7,20 @@
             "UserPwd": $("#txtPwd").val(),
             "ImgCode": $("#txtCode").val()
         };
-        $tool.request("post", "/api/Administrator/Login", data, function (res) {
+        $lsjHttp.adminPost("/api/Administrator/Login", data, function (res) {
             alert("成功");
             location.reload();
         }, false);
     });
 
-    $tool.request("get", "/api/Administrator/ImageCode", null, function (data) {
+    $lsjHttp.adminGet("/api/Administrator/ImageCode", function (data) {
         $("#imgCode").attr("src", data.Data);
     }, false);
 
     // 验证码刷新
     $("#imgCode").on("click", function () {
         var $this = $(this);
-        $tool.request("get", "/api/Administrator/ImageCode", null, function (data) {
+        $lsjHttp.adminGet("/api/Administrator/ImageCode", function (data) {
             $this.attr("src", data.Data);
         }, false);
     });

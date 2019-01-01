@@ -1,0 +1,32 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title></title>
+	<meta charset="utf-8" />
+    <script src="vue.min.js"></script>
+</head>
+<body>
+    <div id="app">
+        <p>
+            {{message}}
+        </p>
+        <button v-on:click="shaya">
+            shaya
+        </button>
+    </div>
+    <script>
+        var app = new Vue({
+            el: "#app",
+            data: {
+                message: "啥"
+            },
+            methods: {
+                shaya: function () {
+                    this.message = "不是";
+                }
+            }
+        });
+    </script>
+</body>
+</html>
