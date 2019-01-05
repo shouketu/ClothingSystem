@@ -1,25 +1,34 @@
 ﻿$(function () {
-    var data = {
-        "Name": null,
-        "PageIndex": 2,
-        "PageSize": 20
+    var loginOut = function () {
+        $lsjHttp.userPost("/api/UserInfo/Logout", null, function (res) {
+            location.reload();
+        });
     };
-    $lsjHttp.userPost("/api/CustomerInfo/SearchPage", data, function (res) {
-        var html = '';
-        for (var i = 0; i < res.Data.Items.length; i++) {
-            var item = res.Data.Items[i];
-            html += '<p>' + item.Id + '，' + item.Name + '</p>';
-        }
-        // 显示
-        $("#con").html(html);
-    });
-
 
     // 登出
-    $("#btnLogout").on("click", function () {
+    $(".loginout").on("click", function () {
         var $this = $(this);
-        $lsjHttp.userPost("/api/UserInfo/Logout", null, function (res) {
-            alert("成功");
+        layer.confirm("是否确定退出？", function (data) {
+            loginOut();
+        });
+    });
+
+    // 修改密码
+    $(".editpwd").on("click", function () {
+        var $this = $(this);
+        var oldPwd = $("#oldPwd").val();
+        var newPwd = $("#newPwd").val();
+        var renewPwd = $("#renewPwd").val();
+        var model = {
+            OldPwd : oldPwd,
+            NewPwd: newPwd,
+            ReNewPwd: renewPwd,
+        };
+        $lsjHttp.userPost("/api/UserInfo/EditPassword", model, function (res) {
+            if (res.Data) {
+                layer.msg("修改成功，请重新登录");
+                loginOut();
+            }
         });
     });
 });

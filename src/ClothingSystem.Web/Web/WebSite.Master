@@ -1,0 +1,77 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" Inherits="ClothingSystem.Web.WebPage.MasterBase" %>
+
+
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>后台管理</title>
+    <meta name="keywords" content="PURE TEA" />
+    <meta name="description" content="PURE TEA" />
+    <meta name="viewport" content="width=device-width,minimum-scale=1.0,minimal-ui,maximum-scale=1.0,user-scalable=no" />
+    <link href="/skin/webcss/index.css" rel="stylesheet" type="text/css">
+    <link href="/skin/webcss/layout.css" rel="stylesheet" type="text/css">
+    <link href="/skin/layui/css/layui.css" rel="stylesheet" />
+    <link href="/skin/layer/theme/default/layer.css" rel="stylesheet" />
+    <asp:ContentPlaceHolder ID="Header" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+
+<body>
+
+    <div id="app">
+        <div class="memberHeader clearfix">
+            <h1 class="membertitle"><a href="javascript:;">系统管理中心</a></h1>
+            <div class="memberInfo">
+                <p>当前用户：<span><%=_user.UserName %></span> <a class="cancelBtn loginout" href="javascript:;">退出</a></p>
+            </div>
+        </div>
+
+        <div class="memberContent clearfix">
+            <div class="memberNav">
+                <p class="stuffLeft"><a href="customerlist.aspx">[客户列表]</a></p>
+                <p class="stuffLeft modipassw"><a href="javascript:;">[修改密码]</a></p>
+                <p class="stuffLeft"><a href="javascript:;" class="loginout">[退出登录]</a></p>
+            </div>
+            <asp:ContentPlaceHolder ID="Content" runat="server">
+            </asp:ContentPlaceHolder>
+        </div>
+
+    </div>
+
+    <!--遮罩-->
+    <div class="mask hide"></div>
+    <!-- 修改 -->
+    <div class="maskfloat stuffFloat hide">
+        <div class="title">修改密码</div>
+        <div class="modofyname">
+            <div class="groupItem">
+                <span>旧密码：</span>
+                <input type="password" id="oldPwd" />
+            </div>
+            <div class="groupItem">
+                <span>新密码：</span>
+                <input type="password" id="newPwd" />
+            </div>
+            <div class="groupItem">
+                <span>确认密码：</span>
+                <input type="password" id="renewPwd" />
+            </div>
+            <div class="addProbtn">
+                <span class="surebtn stuffsure editpwd">确定</span>
+                <span class="cancelbtn stuffCal">取消</span>
+            </div>
+        </div>
+    </div>
+    <script src="/skin/webjs/jquery-1.8.3.min.js"></script>
+    <%--<script src="/skin/webjs/jquery-1.12.2.min.js"></script>--%>
+    <script src="/skin/webjs/index.js"></script>
+    <script src="/skin/layui/layui.js"></script>
+    <script src="/skin/layer/layer.js"></script>
+    <script src="js/tool.js"></script>
+    <script src="js/index.js"></script>
+    <asp:ContentPlaceHolder ID="Foot" runat="server">
+    </asp:ContentPlaceHolder>
+</body>
+
+</html>

@@ -1,0 +1,451 @@
+
+/*-------- 登录 --------*/
+.loginbody{background: #E0F1FB;}
+.loginContent{width:100%;height: 100%;position: relative; }
+.loginForm{width:800px;margin: 0 auto;padding: 10% 0 100px}
+.logintitle img{display: block;margin: 0 auto;}
+.memberForm{padding-top: 25px;
+	width: 360px;
+	margin: 0 auto;
+}
+.memberForm ul li{
+	padding-bottom: 18px;
+	position: relative;
+}
+.memberForm ul li input{width: 360px;height: 40px;line-height: 40px;
+	background: #ffffff;
+	text-indent: 12px;
+	border-radius: 5px;
+}
+.loginBtn{
+	display: block;
+	width: 100%;
+	height: 40px;
+	line-height: 40px;
+	background-color: #9f0007;
+	text-align: center;
+	color: #ffffff;
+	font-size: 16px;
+	border-radius: 5px;
+}
+.loginCode{
+	position: absolute;
+	right: 0;
+	top: 0;
+	z-index: 10;
+}
+
+/*------------*/
+.memberHeader{
+	width: 100%;
+	height: 60px;
+	box-shadow: 0 0 10px -1px rgba(0,0,0,0.5);
+}
+.membertitle{
+	font-size: 23px;
+	line-height: 25px;
+	float: left;
+	font-weight: bold;
+	padding: 15px 0 0 20px;
+}
+.membertitle a{color: #000000;}
+.memberInfo{
+	font-size: 14px;
+	padding: 15px 20px 0 0;
+	float: right;	
+}
+a.cancelBtn{display: inline-block;margin-left: 8px; color: #9f0007;}
+a.cancelBtn:hover{color: #9f0007;}
+
+.memberNav{
+	width: 169px;
+	height: calc(100vh - 60px);
+	height: -webkit-calc(100vh - 60px);
+	height: -moz-calc(100vh - 60px);
+	float: left;
+	background-color: #E0F1FB;
+}
+.memberNav ul li{
+	padding: 6px 20px;
+	border-bottom: 1px solid #ffffff;
+}
+.memberNav ul h3{
+	font-size: 15px;
+	cursor: pointer;
+	position: relative;
+} 
+.memberNav ul h3::after{
+	display:block;
+	content: "";
+	width: 8px;
+	height: 8px;
+	border-left:1px solid #000000;
+	border-bottom: 1px solid #000000;
+	position: absolute;
+	right: 18px;
+	top: 5px;
+	transform: rotate(-45deg);
+	-webkit-transform: rotate(-45deg);
+	-moz-transform: rotate(-45deg);
+	-o-transform: rotate(-45deg);
+}
+.memberNav ul h3.cur::after{
+	right: 18px;
+	top: 10px;
+	transform: rotate(135deg);
+	-webkit-transform: rotate(135deg);
+	-moz-transform: rotate(135deg);
+	-o-transform: rotate(135deg);
+}
+.memberSub{padding: 10px;}
+.memberSub a{color:#000000}
+.memberSub a:hover, .memberSub p.cur a{color:#9f0007}
+
+.memberRight{
+	float: right;
+	width: calc(100% - 169px);
+	width: -webkit-calc(100% - 169px);
+	width: -moz-calc(100% - 169px);
+}
+
+.memberrightCon{padding: 20px 20px 0 20px;font-size: 14px;}
+.loginInfo{padding: 7% 0 0 26%;}
+.loginInfo dt{float: left;padding: 0 20px 0;}
+.loginInfo dd{float: left;}
+.memberText{font-weight: bold;color: #9f0007;}
+
+.memberContent{background-color: #d5e9f5;}
+.currentPosition{
+	padding-bottom: 10px;
+	border-bottom: 1px solid #fff;
+}
+.projectItem{background-color: #ffffff;border-collapse: collapse;}
+.projectItem th{
+	padding: 5px;
+	text-align: center;
+	font-weight: normal;
+	background-color: #E0F1FB;
+	border:1px solid #d5e9f5;
+}
+.projectItem td{
+	padding: 5px;
+	text-align: center;
+	border:1px solid #d5e9f5;
+}
+.projectItem td a{color:#000000;margin-right: 5px;}
+.projectItem td a:hover{color:#9f0007}
+
+.modofyname{padding: 30px;box-sizing: border-box;}
+.modofyname input{
+	border:1px solid #d5e9f5;
+	margin-left: 10px;
+	height: 28px;
+	line-height: 28px;
+	text-indent: 12px;
+	font-size: 14px;
+}
+
+.hide{display: none;}
+.mask{
+	width:100%;
+	height: 100%;
+	position: fixed;
+	left: 0;
+	top:0;
+	z-index: 10;	
+	background: rgba(0,0,0,0.5);
+	
+}
+
+.maskfloat{
+	width: 500px;
+	background-color: #ffffff;
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%,-50%);
+	-webkit-transform: translate(-50%,-50%);
+	-moz-transform: translate(-50%,-50%);
+	-ms-transform: translate(-50%,-50%);
+	-o-transform: translate(-50%,-50%);
+	z-index: 12;
+	font-size: 14px;
+}
+.title{
+	padding: 8px;
+	background-color:#E0F1FB;
+	font-size: 18px;	
+	text-align: center;
+}
+
+.surebtn,.cancelbtn{
+	display: inline-block;
+	border: 1px solid #d5e9f5;
+	padding: 2px 12px;
+	cursor: pointer;
+	margin-left: 8px;
+}
+.surebtn:hover,.cancelbtn:hover{
+	background-color: #d5e9f5;
+}
+.surebtn{margin-left: 12px;}
+
+.cancelbtnlist{
+	text-align: center;
+	padding: 23px;
+}
+
+.addProject{
+	padding: 20px;
+	background-color: #ffffff;
+	margin-top: 1px;
+}
+.addProName{
+	width:220px;
+	border: 1px solid #d5e9f5;
+    margin-left: 10px;
+    height: 28px;
+    line-height: 28px;
+    text-indent: 12px;
+    font-size: 14px;
+}
+.addProbtn{
+	padding: 20px 0 0 0;
+}
+.addProbtn .surebtn{margin-left: 0;}
+    
+.groupItem{padding-top: 10px;}
+.groupSelect, .addgroup{
+	width: 156px;
+    border: 1px solid #d5e9f5;
+    margin-left: 10px;
+    height: 28px;
+    line-height: 28px;
+    text-indent: 12px;
+    font-size: 14px;
+}
+.addItem{padding-top: 15px;}
+.addItem span{
+	display: inline-block;
+	width:72px;
+	text-align: right;
+	
+}
+
+.searchItem{padding: 12px 0 30px 12px;}
+.seachGroup select{
+	width: 172px;
+    border: 1px solid #d5e9f5;
+    margin-left: 10px;
+    height: 28px;
+    line-height: 28px;
+    text-indent: 12px;
+    font-size: 14px;
+}
+
+.seachGroup{
+	float: left;
+	margin-right: 12px;
+}
+.searchMember{
+	float: left;
+	padding-left: 30px;
+}
+.membertext{
+	width: 300px;
+	height: 28px;
+	line-height: 28px;
+	text-indent: 12px;
+	margin: 0 10px;
+}
+.memberbtn{
+	padding: 0 10px;
+	height: 28px;
+	line-height: 28px;
+	cursor: pointer;
+}
+
+.customerdt{
+	width: 220px;
+	border: 1px solid #d5e9f5;
+	padding: 10px;
+	box-sizing: border-box;
+	margin-left: 10px;
+}
+
+.customerline .addItem{
+	border-bottom: 1px solid #d5e9f5;
+	padding-top: 0;
+}
+.customerline .Item{
+	width:160px;
+	background-color: #E0F1FB;
+	padding: 10px 0;
+}
+.customerline .addItem span.detail{
+	width: auto;
+	text-align: left;
+	padding-left: 15px;
+}
+.consumeRecord{
+	padding: 20px 0 10px;
+}
+.addRecord{float: right;}
+.addRecord, .addRecord:hover{color: #9f0007;}
+
+.modiCoustomer .modofyname input{width: 224px;}
+.labelCustomer{
+	border:1px solid #d5e9f5;
+	margin-left: 10px;
+	width: 224px;
+	height: 80px;
+	line-height: 28px;padding: 12px;
+	font-size: 14px;
+}
+.modiCoustomer div{
+	padding-bottom: 10px;
+}
+.customerSpan{
+	display: inline-block;
+	width: 72px;
+	text-align: right;
+}
+
+.projectMod{width: 620px;}
+.projectMod .modofyname{
+	padding: 20px;
+}
+.projectMod .groupItem{
+	width:50%;
+	float: left;
+}
+.projectMod .addProbtn{
+	padding: 20px 0 30px 20px;
+	text-align: center;
+}
+
+.projectMod .groupItem span, .businessFloat .groupItem span{
+	display: inline-block;
+	width: 72px;
+	text-align: right;
+}
+.stuffRg .searchMember{
+	padding-left: 0;
+}
+.stuffLeft{
+	text-align: center;
+	font-size: 15px;
+	padding:8px ;
+}
+.stuffLeft a:hover{
+	color: #9f0007;
+}
+
+.stuffFloat .groupItem span{
+	display: inline-block;
+	width: 72px;
+	text-align: right;
+}
+
+.fenye {
+    background-color: #fff;
+    text-align: center;
+}
+
+@media (min-width:1100px)
+{
+	
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

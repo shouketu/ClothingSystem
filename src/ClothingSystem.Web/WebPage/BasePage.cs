@@ -30,9 +30,12 @@ namespace ClothingSystem.Web.WebPage
                 if (_user == null)
                     Redirect("/webadmin/adminlogin.aspx");   // 管理员
             }
+
+            (Master as MasterBase).SetUserType(_type);
+            (Master as MasterBase).SetAuthUser(_user);
         }
 
-        private void Redirect(string url)
+        protected void Redirect(string url)
         {
             Response.Redirect(url);
         }

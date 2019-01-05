@@ -58,6 +58,17 @@ namespace ClothingSystem.Web.Controllers
         }
 
         /// <summary>
+        /// 根据Id获取顾客
+        /// </summary>
+        /// <param name="id">主键Id</param>
+        /// <returns></returns>
+        [HttpPost]
+        public ResponseResult<CustomerInfoFullDto> Get(int id)
+        {
+            return _customerInfoService.GetById(id).Success();
+        }
+
+        /// <summary>
         /// 删除顾客
         /// </summary>
         /// <returns></returns>

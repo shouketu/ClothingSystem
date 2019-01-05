@@ -95,7 +95,7 @@ namespace ClothingSystem.Service.Impl
 
         public CustomerInfoFullDto GetById(int id)
         {
-            AdminVerify(id, "GetById");
+            // AdminVerify(id, "GetById");
             var res = _customerInfoDal.GetById(id);
             if (res != null)
             { 

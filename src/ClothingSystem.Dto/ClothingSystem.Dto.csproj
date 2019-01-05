@@ -70,6 +70,7 @@
     <Compile Include="Model\ProjectInfo\ProjectInfoDto.cs" />
     <Compile Include="Model\ProjectInfo\ProjectInfoEditDto.cs" />
     <Compile Include="Model\UpdatePwdDto.cs" />
+    <Compile Include="Model\UserInfo\UserEditPwdDto.cs" />
     <Compile Include="Model\UserInfo\UserInfoAddDto.cs" />
     <Compile Include="Model\UserInfo\UserInfoDto.cs" />
     <Compile Include="Model\UserInfo\UserInfoEditDto.cs" />
