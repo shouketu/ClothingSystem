@@ -17,6 +17,16 @@
         return null;
     }
 
+    res.formToModel = function ($form) {
+        var model = {};
+        $form.find("input").each(function () {
+            var name = $(this).attr("name");
+            if (!!name)
+                model[name] = $(this).val();
+        });
+        return model;
+    };
+
     return res;
 })();
 
@@ -46,6 +56,10 @@ var $lsjHttp = (function () {
                 }
                 successBack(res);
             },
+            error: function (res) {
+                if(res.responseJSON)
+                    layer.msg(res.responseJSON.Message);
+            }
         });
     };
     res.userGet = function (url, successBack, isAuth) {

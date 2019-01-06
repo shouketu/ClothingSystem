@@ -1,17 +1,18 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" Inherits="ClothingSystem.Web.WebPage.AdminIndex" %>
+﻿<%@ Page Language="C#" MasterPageFile="~/WebAdmin/WebSite.Master" AutoEventWireup="true" Inherits="ClothingSystem.Web.WebPage.AdminIndex" %>
 
-<!DOCTYPE html>
+<asp:Content ContentPlaceHolderID="Content" runat="server">
+    <div class="memberRight">
+        <div class="memberrightCon">
+            <dl class="loginInfo clearfix">
+                <dt>
+                    <img src="/skin/webimages/zds01.png" /></dt>
+                <dd>
+                    <p class="getDate">当前时间：<%=DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss") + " " + ClothingSystem.Common.StringExpansion.ToDayOfWeek(DateTime.Now.DayOfWeek) %></p>
+                    <p class="memberText"><%=_user.UserName %></p>
+                    <p>欢迎进入网站管理中心！</p>
+                </dd>
+            </dl>
+        </div>
+    </div>
+</asp:Content>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title></title>
-    <script src="../Web/jquery-1.12.2.min.js"></script>
-    <script src="../Web/js/tool.js"></script>
-    <script src="js/index.js"></script>
-</head>
-<body>
-    <input type="button" id="btnLogout" value="登出" />
-    <div id="con"></div>
-</body>
-</html>

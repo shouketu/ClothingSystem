@@ -1,0 +1,76 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" Inherits="ClothingSystem.Web.WebPage.MasterBase" %>
+
+
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>后台管理</title>
+    <meta name="keywords" content="PURE TEA" />
+    <meta name="description" content="PURE TEA" />
+    <meta name="viewport" content="width=device-width,minimum-scale=1.0,minimal-ui,maximum-scale=1.0,user-scalable=no" />
+    <link href="/skin/webcss/index.css" rel="stylesheet" type="text/css">
+    <link href="/skin/webcss/layout.css" rel="stylesheet" type="text/css">
+    <link href="/skin/layui/css/layui.css" rel="stylesheet" />
+    <link href="/skin/layer/theme/default/layer.css" rel="stylesheet" />
+    <asp:ContentPlaceHolder ID="Header" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+
+<body>
+    <div id="app">
+        <div class="memberHeader clearfix">
+            <h1 class="membertitle"><a href="adminindex.aspx">系统管理中心</a></h1>
+            <div class="memberInfo">
+                <p>当前用户：<span><%=_user.UserName %></span> <a class="cancelBtn loginout" href="javascript:;">退出</a></p>
+            </div>
+        </div>
+
+        <div class="memberContent clearfix">
+            <div class="memberNav">
+                <ul>
+                    <li>
+                        <h3>项目管理</h3>
+                        <div class="memberSub" style="display: none;">
+                            <p class="cur"><a href="projectinfo.aspx">项目列表</a></p>
+                            <p><a href="projectadd.aspx">项目添加</a></p>
+                        </div>
+                    </li>
+                    <li>
+                        <h3>分组管理</h3>
+                        <div class="memberSub" style="display: none;">
+                            <p><a href="分组列表.html">分组列表</a></p>
+                            <p><a href="分组添加.html">分组添加</a></p>
+                        </div>
+                    </li>
+                    <li>
+                        <h3>业务管理</h3>
+                        <div class="memberSub" style="display: none;">
+                            <p><a href="业务列表.html">业务列表</a></p>
+                            <p><a href="添加业务.html">添加业务</a></p>
+                        </div>
+                    </li>
+                    <li>
+                        <h3>客户管理</h3>
+                        <div class="memberSub" style="display: none;">
+                            <p><a href="客户列表.html">客户列表</a></p>
+                            <p><a href="添加客户.html">添加客户</a></p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <asp:ContentPlaceHolder ID="Content" runat="server">
+            </asp:ContentPlaceHolder>
+        </div>
+    </div>
+    <script src="/skin/webjs/jquery-1.8.3.min.js"></script>
+    <%--<script src="/skin/webjs/jquery-1.12.2.min.js"></script>--%>
+    <script src="/skin/webjs/index.js"></script>
+    <script src="/skin/layui/layui.js"></script>
+    <script src="/skin/layer/layer.js"></script>
+    <script src="/Web/js/tool.js"></script>
+    <script src="js/index.js"></script>
+    <asp:ContentPlaceHolder ID="Foot" runat="server">
+    </asp:ContentPlaceHolder>
+</body>
+</html>

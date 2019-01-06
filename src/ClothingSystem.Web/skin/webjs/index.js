@@ -37,8 +37,10 @@ $(function () {
     };
 
     //表格操作
-    $(".modifyList").on("click", function () {  //修改
+    $(document).on("click", ".modifyList", function () {  //修改
         var that = $(this);
+        $("input[name=Id]").val(that.attr("rel"));
+
         var index = that.parents("tr").index();
         var thisText = that.parents("tr").find(".projectName").text();  //项目名称
 
@@ -58,51 +60,51 @@ $(function () {
 
         //分组列表
 
-        $(".fixedSureBtn").on("click", function () { //确认修改
-            debugger
-            var valuetxt = $(".projectnameInp").val();
-            var indexFlag = $(this).attr("indexFlag");
-            if ($(".groupSelect").length > 0) {  //分组列表
-                var selectGroup = $(".groupSelect option:selected").val();
-                $(".projectTable tr").eq(indexFlag).find(".groupName").text(selectGroup)
-            }
+        //$(".fixedSureBtn").on("click", function () { //确认修改
+        //    debugger
+        //    var valuetxt = $(".projectnameInp").val();
+        //    var indexFlag = $(this).attr("indexFlag");
+        //    if ($(".groupSelect").length > 0) {  //分组列表
+        //        var selectGroup = $(".groupSelect option:selected").val();
+        //        $(".projectTable tr").eq(indexFlag).find(".groupName").text(selectGroup)
+        //    }
 
 
-            $(".projectTable tr").eq(indexFlag).find(".projectName").text(valuetxt)
-            $(".mask").addClass("hide");
-            $(".modofyFloat").addClass("hide");
-        })
-
-    });
-
-    $(".deleteList").on("click", function () {  //删除
-        debugger
-        var that = $(this);
-        var index = that.parents("tr").index();
-
-        $(".mask").removeClass("hide");
-        $(".cancelFloat").removeClass("hide");
-        $(".deleteSureBtn").attr("indexFlag", index)
+        //    $(".projectTable tr").eq(indexFlag).find(".projectName").text(valuetxt)
+        //    $(".mask").addClass("hide");
+        //    $(".modofyFloat").addClass("hide");
+        //})
 
     });
 
-    $(".deleteSureBtn").on("click", function () { //确认修改
-        debugger
-        var indexFlag = $(this).attr("indexFlag")
-        $(".projectTable tr").eq(indexFlag).remove();
-        $(".mask").addClass("hide");
-        $(".cancelFloat").addClass("hide");
-    })
+    //$(".deleteList").on("click", function () {  //删除
+    //    debugger
+    //    var that = $(this);
+    //    var index = that.parents("tr").index();
+
+    //    $(".mask").removeClass("hide");
+    //    $(".cancelFloat").removeClass("hide");
+    //    $(".deleteSureBtn").attr("indexFlag", index)
+
+    //});
+
+    //$(".deleteSureBtn").on("click", function () { //确认修改
+    //    debugger
+    //    var indexFlag = $(this).attr("indexFlag")
+    //    $(".projectTable tr").eq(indexFlag).remove();
+    //    $(".mask").addClass("hide");
+    //    $(".cancelFloat").addClass("hide");
+    //})
 
     $(".fixedcacBtn").on("click", function () { //取消修改
         $(".mask").addClass("hide");
         $(".modofyFloat").addClass("hide");
     });
 
-    $(".deletecacBtn").on("click", function () { //取消修改
-        $(".mask").addClass("hide");
-        $(".cancelFloat").addClass("hide");
-    });
+    //$(".deletecacBtn").on("click", function () { //取消修改
+    //    $(".mask").addClass("hide");
+    //    $(".cancelFloat").addClass("hide");
+    //});
 
     $(".addresetBtn").on("click", function () { //重置
         $(".addProName").val("")

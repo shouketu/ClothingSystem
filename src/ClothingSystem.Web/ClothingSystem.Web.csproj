@@ -248,6 +248,9 @@
     <Content Include="skin\layer\theme\default\loading-0.gif" />
     <Content Include="skin\layer\theme\default\loading-1.gif" />
     <Content Include="skin\layer\theme\default\loading-2.gif" />
+    <Content Include="WebAdmin\js\projectinfo.js" />
+    <Content Include="WebAdmin\ProjectAdd.aspx" />
+    <Content Include="WebAdmin\ProjectInfo.aspx" />
     <Content Include="Web\CustomerDetail.aspx" />
     <Content Include="Web\CustomerList.aspx" />
     <Content Include="Web\js\consumptionrecrod.js" />
@@ -284,6 +287,7 @@
     <Content Include="skin\laydate\theme\default\font\iconfont.ttf" />
     <Content Include="skin\laydate\theme\default\font\iconfont.woff" />
     <Content Include="Web\WebSite.Master" />
+    <Content Include="WebAdmin\WebSite.Master" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Global.asax" />

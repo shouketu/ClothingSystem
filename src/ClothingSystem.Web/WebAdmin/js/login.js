@@ -1,6 +1,6 @@
 ﻿$(function () {
     // 登录
-    $("#btnLogin").on("click", function () {
+    $(".loginForm").on("submit", function () {
         var $this = $(this);
         var data = {
             "UserName": $("#txtUser").val(),
@@ -8,14 +8,15 @@
             "ImgCode": $("#txtCode").val()
         };
         $lsjHttp.adminPost("/api/Administrator/Login", data, function (res) {
-            alert("成功");
             location.reload();
         }, false);
-    });
 
-    $lsjHttp.adminGet("/api/Administrator/ImageCode", function (data) {
-        $("#imgCode").attr("src", data.Data);
-    }, false);
+        return false;
+    });
+    $("#btnLogin").on("click", function () {
+        $(".loginForm input[type=submit]").click();
+        return false;
+    });
 
     // 验证码刷新
     $("#imgCode").on("click", function () {
@@ -24,4 +25,6 @@
             $this.attr("src", data.Data);
         }, false);
     });
+
+    $("#imgCode").click();
 });

@@ -1,25 +1,15 @@
 ﻿$(function () {
-    var data = {
-        "Name": null,
-        "PageIndex": 1,
-        "PageSize": 20
+    var loginOut = function () {
+        $lsjHttp.adminPost("/api/UserInfo/Logout", null, function (res) {
+            location.reload();
+        });
     };
-    $lsjHttp.adminPost("/api/UserInfo/SearchPage", data, function (res) {
-        var html = '';
-        for (var i = 0; i < res.Data.Items.length; i++) {
-            var item = res.Data.Items[i];
-            html += '<p>' + item.Id + '，' + item.UserName + '</p>';
-        }
-        // 显示
-        $("#con").html(html);
-    }, true,  true);
-
 
     // 登出
-    $("#btnLogout").on("click", function () {
+    $(".loginout").on("click", function () {
         var $this = $(this);
-        $lsjHttp.adminPost("/api/UserInfo/Logout", function (res) {
-            alert("成功");
+        layer.confirm("是否确定退出？", function (data) {
+            loginOut();
         });
     });
 });
