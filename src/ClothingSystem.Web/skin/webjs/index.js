@@ -46,12 +46,18 @@ $(function () {
 
         var groupName = that.parents("tr").find(".groupName").text();  //分组名称
 
+        var groupId = that.parents("tr").find(".projectName").attr("rel");  // 项目Id
+
         if (thisText) {   //项目列表
             $(".projectnameInp").val(thisText)
         }
 
-        if (groupName) {  // 分组管理
-            $(".groupSelect").val(groupName)
+        if (groupName) {   // 分组名称
+            $(".projectnameInp").val(groupName)
+        }
+
+        if (groupId) {  // 项目Id
+            $(".groupSelect").val(groupId)
         }
 
         $(".mask").removeClass("hide");

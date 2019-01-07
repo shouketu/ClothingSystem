@@ -19,6 +19,6 @@ namespace ClothingSystem.Dto.Model
         /// <summary>
         /// 项目名称
         /// </summary>
-        public string ProjectTtile => ProjectInfo?.Title;
+        public string ProjectTitle => ProjectInfo?.Title;
     }
 }

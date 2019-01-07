@@ -232,6 +232,9 @@
     <Content Include="skin\layui\lay\modules\tree.js" />
     <Content Include="skin\layui\lay\modules\upload.js" />
     <Content Include="skin\layui\lay\modules\util.js" />
+    <Content Include="WebAdmin\GroupAdd.aspx" />
+    <Content Include="WebAdmin\GroupInfo.aspx" />
+    <Content Include="WebAdmin\js\groupinfo.js" />
     <Content Include="WebAdmin\js\index.js" />
     <Content Include="WebAdmin\js\login.js" />
     <Content Include="WebAdmin\AdminIndex.aspx" />

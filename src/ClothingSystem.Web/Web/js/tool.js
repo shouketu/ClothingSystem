@@ -24,6 +24,11 @@
             if (!!name)
                 model[name] = $(this).val();
         });
+        $form.find("select").each(function () {
+            var name = $(this).attr("name");
+            if (!!name)
+                model[name] = $(this).val();
+        });
         return model;
     };
 
