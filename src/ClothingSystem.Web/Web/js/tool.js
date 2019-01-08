@@ -29,7 +29,28 @@
             if (!!name)
                 model[name] = $(this).val();
         });
+        $form.find("textarea").each(function () {
+            var name = $(this).attr("name");
+            if (!!name)
+                model[name] = $(this).val();
+        });
         return model;
+    };
+
+    res.checkDate = function (val) {
+        return isNaN(val) && !isNaN(Date.parse(val));
+    };
+
+    res.modelSetForm = function ($form, model) {
+        if (model == null)
+            return;
+        for (var key in model) {
+            var val = model[key];
+            if (res.checkDate(val)) {
+                val = val.toFromat();
+            }
+            $form.find("[name=" + key + "]").val(val);
+        }
     };
 
     return res;
@@ -88,12 +109,16 @@ var $lsjHttp = (function () {
 var $lsjPage = (function () {
     var res = {};
 
-    res.pageByCallback = function (url, data, callback) {
-        $lsjHttp.userPost(url, data, function (res) {
+    res.pageByCallback = function (url, data, callback, isAdmin) {
+        var process = $lsjHttp.userPost;
+        if (isAdmin)
+            process = $lsjHttp.adminPost;
+        process(url, data, function (res) {
             var total = res.Data.Total;
             var ele = "page";
             if (total <= 0)
             {
+                $("#con").html('<td colspan="7">没有数据</td>');
                 $("#" + ele).hide();
                 return;
             }
@@ -110,7 +135,7 @@ var $lsjPage = (function () {
                     jump: function (obj) {
                         data.PageSize = obj.limit;
                         data.PageIndex = obj.curr;
-                        $lsjHttp.userPost(url, data, callback);
+                        process(url, data, callback);
                         return false;
                     }
                 });
@@ -118,7 +143,7 @@ var $lsjPage = (function () {
         });
     };
 
-    res.pageByTemplate = function (url, data, template) {
+    res.pageByTemplate = function (url, data, template, isAdmin) {
         res.pageByCallback(url, data, function (res) {
             var html = '';
             var keyStr = template;
@@ -128,7 +153,7 @@ var $lsjPage = (function () {
             }
             // 显示
             $("#con").html(html);
-        });
+        }, isAdmin);
     };
 
     return res;
@@ -141,7 +166,7 @@ var $lsjPage = (function () {
             return null;
         for (var key in model) {
             var val = model[key];
-            if (isNaN(val) && !isNaN(Date.parse(val))) {
+            if ($lsjTool.checkDate(val)) {
                 val = val.toFromat();
             }
             // str = str.replace('{' + key + '}', val == null ? "" : val);
@@ -168,3 +193,17 @@ var $lsjPage = (function () {
         return date.toFromat();
     };
 })();
+
+$(function () {
+    if (!!window.layui && !!window.layui.laydate || window.laydate) {
+        var layDate = window.laydate || window.layui.laydate;
+        $("[lay=date]").each(function (i) {
+            var id = "laydate_ele_" + i;
+            $(this).attr("id", id);
+            layDate.render({
+                elem: '#' + id,
+                type: 'datetime'
+            });
+        });
+    }
+});

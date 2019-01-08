@@ -53,8 +53,8 @@
                     <li>
                         <h3>客户管理</h3>
                         <div class="memberSub" style="display: none;">
-                            <p><a href="客户列表.html">客户列表</a></p>
-                            <p><a href="添加客户.html">添加客户</a></p>
+                            <p><a href="customerlist.aspx">客户列表</a></p>
+                            <p><a href="customeradd.aspx">添加客户</a></p>
                         </div>
                     </li>
                 </ul>

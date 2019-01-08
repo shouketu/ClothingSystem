@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" MasterPageFile="~/Web/WebSite.Master" AutoEventWireup="true" Inherits="ClothingSystem.Web.WebPage.CustomerDetail" %>
+﻿<%@ Page Language="C#" MasterPageFile="~/WebAdmin/WebSite.Master" AutoEventWireup="true" Inherits="ClothingSystem.Web.WebPage.AdminCustomerDetail" %>
 
 <asp:Content ContentPlaceHolderID="Header" runat="server">
     <link href="/skin/laydate/theme/default/laydate.css" rel="stylesheet" />

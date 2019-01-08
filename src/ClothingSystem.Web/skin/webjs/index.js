@@ -181,29 +181,29 @@ $(function () {
 
 
     //修改客户列表
-    $(document).on("click", ".projectModbtn", function () {
-        debugger
-        var _this = $(this);
-        var index = _this.parents("tr").index();
-        var cusName = _this.parents("tr").find("td:nth-child(1)").text()
-        var cusPhone = _this.parents("tr").find("td:nth-child(2)").text()
-        var cusBelonggr = _this.parents("tr").find("td:nth-child(3)").text()
-        var cusBelongBus = _this.parents("tr").find("td:nth-child(4)").text()
-        var cusAddr = _this.parents("tr").find("td:nth-child(5)").text()
+    //$(document).on("click", ".projectModbtn", function () {
+    //    debugger
+    //    var _this = $(this);
+    //    var index = _this.parents("tr").index();
+    //    var cusName = _this.parents("tr").find("td:nth-child(1)").text()
+    //    var cusPhone = _this.parents("tr").find("td:nth-child(2)").text()
+    //    var cusBelonggr = _this.parents("tr").find("td:nth-child(3)").text()
+    //    var cusBelongBus = _this.parents("tr").find("td:nth-child(4)").text()
+    //    var cusAddr = _this.parents("tr").find("td:nth-child(5)").text()
 
 
-        $(".proSureBtn").attr("indexFlag", index)
+    //    $(".proSureBtn").attr("indexFlag", index)
 
-        $(".custmName").val(cusName)
-        $(".custmPhone").val(cusPhone)
-        $(".custmAddr").val(cusAddr)
-        $(".belongPro").val(cusBelonggr)
-        $(".belongBusiness").val(cusBelongBus)
+    //    $(".custmName").val(cusName)
+    //    $(".custmPhone").val(cusPhone)
+    //    $(".custmAddr").val(cusAddr)
+    //    $(".belongPro").val(cusBelonggr)
+    //    $(".belongBusiness").val(cusBelongBus)
 
-        $(".mask").removeClass("hide");
-        $(".projectMod").removeClass("hide");
+    //    $(".mask").removeClass("hide");
+    //    $(".projectMod").removeClass("hide");
 
-    });
+    //});
 
     $(".proSureBtn").click(function () {
         var index = $(this).attr("indexFlag")
@@ -236,24 +236,24 @@ $(function () {
         $(".projectMod").addClass("hide");
     });
 
-    $(document).on("click", ".projectcalbtn", function () {
-        var index = $(this).parents("tr").index();
+    //$(document).on("click", ".projectcalbtn", function () {
+    //    var index = $(this).parents("tr").index();
 
-        $(".mask").removeClass("hide");
-        $(".custmFloat").removeClass("hide");
+    //    $(".mask").removeClass("hide");
+    //    $(".custmFloat").removeClass("hide");
 
-        $(".cuslistSure").click(function () {
-            $(".projectItem tr").eq(index).remove();
-            $(".mask").addClass("hide");
-            $(".custmFloat").addClass("hide");
-        });
+    //    $(".cuslistSure").click(function () {
+    //        $(".projectItem tr").eq(index).remove();
+    //        $(".mask").addClass("hide");
+    //        $(".custmFloat").addClass("hide");
+    //    });
 
-        $(".cuslistcal").click(function () {
-            $(".mask").addClass("hide");
-            $(".custmFloat").addClass("hide");
-        });
+    //    $(".cuslistcal").click(function () {
+    //        $(".mask").addClass("hide");
+    //        $(".custmFloat").addClass("hide");
+    //    });
 
-    })
+    //})
 
 
 

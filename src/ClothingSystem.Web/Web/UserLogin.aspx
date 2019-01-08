@@ -5,9 +5,9 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title>后台管理</title>
-    <meta name="keywords" content="PURE TEA" />
-    <meta name="description" content="PURE TEA" />
+    <title>用户登录</title>
+    <meta name="keywords" content="用户登录" />
+    <meta name="description" content="用户登录" />
     <meta name="viewport" content="width=device-width,minimum-scale=1.0,minimal-ui,maximum-scale=1.0,user-scalable=no" />
     <link href="/skin/webcss/index.css" rel="stylesheet" />
     <link href="/skin/webcss/layout.css" rel="stylesheet" />

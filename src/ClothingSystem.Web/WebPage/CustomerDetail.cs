@@ -18,6 +18,11 @@ namespace ClothingSystem.Web.WebPage
             
         }
 
+        public CustomerDetail(UserTypeEnum user) : base(user)
+        {
+
+        }
+
         protected void Page_Load(object sender, EventArgs e)
         {
             var url = "customerlist.aspx";

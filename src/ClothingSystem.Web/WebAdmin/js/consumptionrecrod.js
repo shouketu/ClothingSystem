@@ -18,7 +18,7 @@
                     </tr>';
         var url = "/api/ConsumptionRecrod/SearchPage";
 
-        $lsjPage.pageByTemplate(url, data, templateStr);    // 查询
+        $lsjPage.pageByTemplate(url, data, templateStr, true);    // 查询
 
         $(".mask").addClass("hide");
         $(".modiCoustomer").addClass("hide");
@@ -40,13 +40,13 @@
         model.Remark = remark;
 
         if (model.Id > 0) {
-            $lsjHttp.userPost("/api/ConsumptionRecrod/Edit", model, function (data) {
+            $lsjHttp.adminPost("/api/ConsumptionRecrod/Edit", model, function (data) {
                 if (data.Data)
                     processSearch();
             });
         }
         else {
-            $lsjHttp.userPost("/api/ConsumptionRecrod/Add", model, function (data) {
+            $lsjHttp.adminPost("/api/ConsumptionRecrod/Add", model, function (data) {
                 if (data.Data)
                 {
                     data.PageIndex = 1;
@@ -64,7 +64,7 @@
             return;
         }
         layer.confirm("是否确定要删除?", function () {
-            $lsjHttp.userPost("/api/ConsumptionRecrod/Deletes", [id], function (data) {
+            $lsjHttp.adminPost("/api/ConsumptionRecrod/Deletes", [id], function (data) {
                 if (data.Data) {
                     layer.msg("删除成功");
                     processSearch();

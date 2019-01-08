@@ -51,10 +51,11 @@ namespace ClothingSystem.Web.Controllers
         /// <param name="search">搜索对象</param>
         /// <returns></returns>
         [HttpPost]
-        public ResponseResult<PageResult<CustomerInfoEditDto>> SearchPage([FromBody]CustomerSearchDto search)
+        public ResponseResult<PageResult<CustomerInfoFullDto>> SearchPage([FromBody]CustomerSearchDto search)
         {
             var res = _customerInfoService.SearchPage(search);
-            return res.Clone<PageResult<CustomerInfoEditDto>>().Success();
+            return res.Success();
+            // return res.Clone<PageResult<CustomerInfoEditDto>>().Success();
         }
 
         /// <summary>

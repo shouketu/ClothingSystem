@@ -232,8 +232,13 @@
     <Content Include="skin\layui\lay\modules\tree.js" />
     <Content Include="skin\layui\lay\modules\upload.js" />
     <Content Include="skin\layui\lay\modules\util.js" />
+    <Content Include="WebAdmin\CustomerDetail.aspx" />
+    <Content Include="WebAdmin\CustomerAdd.aspx" />
+    <Content Include="WebAdmin\CustomerList.aspx" />
     <Content Include="WebAdmin\GroupAdd.aspx" />
     <Content Include="WebAdmin\GroupInfo.aspx" />
+    <Content Include="WebAdmin\js\consumptionrecrod.js" />
+    <Content Include="WebAdmin\js\customerinfo.js" />
     <Content Include="WebAdmin\js\groupinfo.js" />
     <Content Include="WebAdmin\js\index.js" />
     <Content Include="WebAdmin\js\login.js" />
@@ -312,6 +317,9 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="WebPage\AdminCustomerDetail.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
     <Compile Include="WebPage\AdminIndex.cs">
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
