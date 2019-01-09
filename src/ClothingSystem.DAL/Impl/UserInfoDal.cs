@@ -54,7 +54,7 @@ namespace ClothingSystem.DAL.Impl
             if (!string.IsNullOrEmpty(search.UserName))
                 where += " and UserName like @UserName";
             var order = "order by id desc";
-            var param = new { Name = $"%{search.UserName}%", search.GroupId };
+            var param = new { UserName = $"%{search.UserName}%", search.GroupId };
             return SearchPage<UserInfoFullDto>(search, where, order, "userinfo", param: param);
         }
 

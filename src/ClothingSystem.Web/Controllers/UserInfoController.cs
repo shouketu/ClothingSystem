@@ -80,6 +80,17 @@ namespace ClothingSystem.Web.Controllers
         }
 
         /// <summary>
+        /// 修改用户密码，管理员使用
+        /// </summary>
+        /// <param name="model">修改对象</param>
+        /// <returns></returns>
+        [HttpPost]
+        public ResponseResult<bool> ModifyPPassword([FromBody]UpdatePwdDto model)
+        {
+            return _userInfoService.ModifyPPassword(model).Success();
+        }
+
+        /// <summary>
         /// 搜索用户信息
         /// </summary>
         /// <param name="search">搜索对象</param>

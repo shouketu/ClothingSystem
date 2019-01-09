@@ -78,6 +78,35 @@ namespace ClothingSystem.Service.Impl
             return _administratorDal.Update(model.UserId, adminPwd) > 0;
         }
 
+        public bool EditPassword(UserEditPwdDto model)
+        {
+            if (_user == null)
+                Exception("Update.EditPassword", "修改用户不存在");
+
+            if (model == null)
+                Exception("Update.EditPassword", "修改用户不存在");
+
+            if (string.IsNullOrEmpty(model.OldPwd))
+                Exception("Update.EditPassword", "旧密码不能为空");
+
+            if (string.IsNullOrEmpty(model.NewPwd))
+                Exception("Update.EditPassword", "新密码不能为空");
+
+            if (!model.NewPwd.Equals(model.ReNewPwd))
+                Exception("Update.EditPassword", "两次密码不一致");
+
+            var info = _administratorDal.GetById(_user.UserId);
+            if (info == null)
+                Exception("Update.EditPassword", "修改用户在数据库中不存在");
+
+            if (Tools.DecryptDESByAdminPwd(info.AdminPwd) != model.OldPwd)
+                Exception("Update.EditPassword", "旧密码不正确");
+
+            var pwd = Tools.EncryptDESByAdminPwd(model.NewPwd);
+
+            return _administratorDal.Update(_user.UserId, pwd) > 0;
+        }
+
         public AdministratorDto GetById(int id)
         {
             AdminVerify(0, "GetById");

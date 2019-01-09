@@ -22,6 +22,9 @@
 					</tr>';
         var url = "/api/CustomerInfo/SearchPage";
         $lsjPage.pageByTemplate(url, data, templateStr, true);
+
+        $(".mask").addClass("hide");
+        $(".projectMod").addClass("hide");
     };
     processSearch();
 

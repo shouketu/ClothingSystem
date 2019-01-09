@@ -3,7 +3,7 @@
 <asp:Content ContentPlaceHolderID="Content" runat="server">
     <div class="memberRight stuffRg">
         <div class="memberrightCon">
-            <p class="currentPosition">查找客户</p>
+            <p class="currentPosition">当前位置：管理中心 > 客户列表</p>
             <div class="projectTable">
                 <div class="searchItem clearfix">
                     <div class="seachGroup">
@@ -22,7 +22,7 @@
                         <div class="searchMember">
                             <span>用户搜索</span>
                             <input class="membertext" type="text" />
-                            <button class="memberbtn">搜索</button>
+                            <button type="submit" class="memberbtn">搜索</button>
                         </div>
                     </form>
                 </div>
@@ -115,7 +115,7 @@
                 <span class="surebtn proSureBtn" indexflag="">确定</span>
                 <span class="cancelbtn procacBtn">取消</span>
             </div>
-            <button type="submit" style="display:none;"></button>
+            <button type="submit" style="display: none;"></button>
         </form>
     </div>
 

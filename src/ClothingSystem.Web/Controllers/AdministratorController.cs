@@ -51,9 +51,22 @@ namespace ClothingSystem.Web.Controllers
         /// <param name="model">修改密码对象</param>
         /// <returns></returns>
         [HttpPost]
-        public ResponseResult<bool> UpdatePwd([FromBody]UpdatePwdDto model)
+        [Obsolete]
+        ResponseResult<bool> UpdatePwd([FromBody]UpdatePwdDto model)
         {
             return _administratorService.UpdatePwd(model).Success();
+        }
+
+
+        /// <summary>
+        /// 修改管理员密码
+        /// </summary>
+        /// <param name="model">修改对象</param>
+        /// <returns></returns>
+        [HttpPost]
+        public ResponseResult<bool> EditPassword([FromBody]UserEditPwdDto model)
+        {
+            return _administratorService.EditPassword(model).Success();
         }
 
         /// <summary>

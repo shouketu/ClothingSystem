@@ -116,21 +116,21 @@ $(function () {
         $(".addProName").val("")
     });
 
-    $(".mask").on("click", function () {
+    $(".mask,.cancelbtn").on("click", function () {
         $(".mask").addClass("hide");
         $(".maskfloat").addClass("hide");
     });
 
     //修改业务列表
     $(document).on("click", ".businessModify", function () {
-        debugger
+        // debugger
 
         var _this = $(this);
         var index = _this.parents("tr").index();
         var cusName = _this.parents("tr").find("td:nth-child(1)").text()
         var cusPassword = _this.parents("tr").find("td:nth-child(2)").text()
         var cusPhone = _this.parents("tr").find("td:nth-child(3)").text()
-        var cusGroup = _this.parents("tr").find("td:nth-child(4)").text()
+        var cusGroup = _this.parents("tr").find("td:nth-child(4)").attr("rel")
 
         $(".busSureBtn").attr("indexFlag", index)
 
@@ -138,46 +138,65 @@ $(function () {
         $(".busPassword").val(cusPassword)
         $(".busPhone").val(cusPhone)
         $(".busGroup").val(cusGroup)
+        $("[name=Id]").val(_this.attr("rel"))
 
         $(".mask").removeClass("hide");
         $(".businessFloat").removeClass("hide");
 
     });
 
-    $(".busSureBtn").click(function () {
-        var index = $(this).attr("indexFlag")
-        var name = $(".busId").val()
-        var getpassword = $(".busPassword").val()
-        var phone = $(".busPhone").val()
-        var group = $(".busGroup").val()
+    //修改业务的密码
+    $(document).on("click", ".businessModifyPwd", function () {
+        var _this = $(this);
+        var index = _this.parents("tr").index();
+        var cusName = _this.parents("tr").find("td:nth-child(1)").text()
+        var cusPassword = _this.parents("tr").find("td:nth-child(2)").find(".spanPwd").attr("rel")
 
-        $(".projectItem tr").eq(index).find("td:nth-child(1)").html(name)
-        $(".projectItem tr").eq(index).find("td:nth-child(2)").html(getpassword)
-        $(".projectItem tr").eq(index).find("td:nth-child(3)").html(phone)
-        $(".projectItem tr").eq(index).find("td:nth-child(4)").html(group)
+        $(".busSureBtn").attr("indexFlag", index)
 
-        $(".mask").addClass("hide");
-        $(".businessFloat").addClass("hide");
-    })
-
-    $(document).on("click", ".businessDelete", function () {
-        var index = $(this).parents("tr").index();
+        $(".username").text(cusName)
+        $(".formEditUserPwd .spanPwd").attr("rel", cusPassword)
+        $("[name=UserId]").val(_this.attr("rel"))
 
         $(".mask").removeClass("hide");
-        $(".businFloat").removeClass("hide");
+        $(".businessUpdatePwdFloat").removeClass("hide");
 
-        $(".busindel").click(function () {
-            $(".projectItem tr").eq(index).remove();
-            $(".mask").addClass("hide");
-            $(".businFloat").addClass("hide");
-        });
+    });
 
-        $(".busicacBtn").click(function () {
-            $(".mask").addClass("hide");
-            $(".businFloat").addClass("hide");
-        });
+    //$(".busSureBtn").click(function () {
+    //    var index = $(this).attr("indexFlag")
+    //    var name = $(".busId").val()
+    //    var getpassword = $(".busPassword").val()
+    //    var phone = $(".busPhone").val()
+    //    var group = $(".busGroup").val()
 
-    })
+    //    $(".projectItem tr").eq(index).find("td:nth-child(1)").html(name)
+    //    $(".projectItem tr").eq(index).find("td:nth-child(2)").html(getpassword)
+    //    $(".projectItem tr").eq(index).find("td:nth-child(3)").html(phone)
+    //    $(".projectItem tr").eq(index).find("td:nth-child(4)").html(group)
+
+    //    $(".mask").addClass("hide");
+    //    $(".businessFloat").addClass("hide");
+    //})
+
+    //$(document).on("click", ".businessDelete", function () {
+    //    var index = $(this).parents("tr").index();
+
+    //    $(".mask").removeClass("hide");
+    //    $(".businFloat").removeClass("hide");
+
+    //    $(".busindel").click(function () {
+    //        $(".projectItem tr").eq(index).remove();
+    //        $(".mask").addClass("hide");
+    //        $(".businFloat").addClass("hide");
+    //    });
+
+    //    $(".busicacBtn").click(function () {
+    //        $(".mask").addClass("hide");
+    //        $(".businFloat").addClass("hide");
+    //    });
+
+    //})
 
 
     //修改客户列表
@@ -205,31 +224,31 @@ $(function () {
 
     //});
 
-    $(".proSureBtn").click(function () {
-        var index = $(this).attr("indexFlag")
-        var name = $(".custmName").val()
-        var phone = $(".custmPhone").val()
-        var qq = $(".custmQq").val()
-        var addr = $(".custmAddr").val()
-        var cost = $(".custmCost").val()
-        var firstCost = $(".custmFistMy").val()
-        var sendPro = $(".custmSendpro").val()
-        var manager = $(".custmManager").val()
-        var joinDate = $(".custmJoindate").val()
-        var label = $(".custmLabel").val()
-        var group = $(".belongPro option:selected").val()
-        var business = $(".belongBusiness option:selected").val()
+    //$(".proSureBtn").click(function () {
+    //    var index = $(this).attr("indexFlag")
+    //    var name = $(".custmName").val()
+    //    var phone = $(".custmPhone").val()
+    //    var qq = $(".custmQq").val()
+    //    var addr = $(".custmAddr").val()
+    //    var cost = $(".custmCost").val()
+    //    var firstCost = $(".custmFistMy").val()
+    //    var sendPro = $(".custmSendpro").val()
+    //    var manager = $(".custmManager").val()
+    //    var joinDate = $(".custmJoindate").val()
+    //    var label = $(".custmLabel").val()
+    //    var group = $(".belongPro option:selected").val()
+    //    var business = $(".belongBusiness option:selected").val()
 
-        $(".projectItem tr").eq(index).find("td:nth-child(1)").html(name)
-        $(".projectItem tr").eq(index).find("td:nth-child(2)").html(phone)
-        $(".projectItem tr").eq(index).find("td:nth-child(3)").html(group)
-        $(".projectItem tr").eq(index).find("td:nth-child(4)").html(business)
-        $(".projectItem tr").eq(index).find("td:nth-child(5)").html(addr)
+    //    $(".projectItem tr").eq(index).find("td:nth-child(1)").html(name)
+    //    $(".projectItem tr").eq(index).find("td:nth-child(2)").html(phone)
+    //    $(".projectItem tr").eq(index).find("td:nth-child(3)").html(group)
+    //    $(".projectItem tr").eq(index).find("td:nth-child(4)").html(business)
+    //    $(".projectItem tr").eq(index).find("td:nth-child(5)").html(addr)
 
-        $(".mask").addClass("hide");
-        $(".projectMod").addClass("hide");
+    //    $(".mask").addClass("hide");
+    //    $(".projectMod").addClass("hide");
 
-    });
+    //});
 
     $(".procacBtn").click(function () {
         $(".mask").addClass("hide");

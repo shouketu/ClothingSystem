@@ -3,7 +3,7 @@
 <asp:Content ContentPlaceHolderID="Content" runat="server">
     <div class="memberRight">
         <div class="memberrightCon">
-            <p class="currentPosition">当前位置：管理中心 > 项目列表</p>
+            <p class="currentPosition">当前位置：管理中心 > 分组列表</p>
             <div class="projectTable">
                 <table class="projectItem" width="100%" cellpadding="0" cellspacing="0">
                     <thead>

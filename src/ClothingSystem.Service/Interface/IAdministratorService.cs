@@ -34,6 +34,13 @@ namespace ClothingSystem.Service.Interface
         bool UpdatePwd(UpdatePwdDto model);
 
         /// <summary>
+        /// 修改管理员密码
+        /// </summary>
+        /// <param name="model">修改密码对象</param>
+        /// <returns></returns>
+        bool EditPassword(UserEditPwdDto model);
+
+        /// <summary>
         /// 根据Id获取对象
         /// </summary>
         /// <param name="id">主键Id</param>

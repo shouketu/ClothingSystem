@@ -198,5 +198,18 @@ namespace ClothingSystem.Service.Impl
 
             return _userInfoDal.Update(_user.UserId, pwd) > 0;
         }
+
+        public bool ModifyPPassword(UpdatePwdDto model)
+        {
+            if (model == null || model.UserId <= 0)
+                Exception("Update.ModifyPPassword", "修改用户不存在");
+
+            if (string.IsNullOrEmpty(model.UserPwdText))
+                Exception("Update.ModifyPPassword", "密码不能为空");
+
+            var pwd = Tools.EncryptDESByUserPwd(model.UserPwdText);
+
+            return _userInfoDal.Update(model.UserId, pwd) > 0;
+        }
     }
 }

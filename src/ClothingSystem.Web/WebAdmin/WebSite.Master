@@ -32,7 +32,7 @@
                     <li>
                         <h3>项目管理</h3>
                         <div class="memberSub" style="display: none;">
-                            <p class="cur"><a href="projectinfo.aspx">项目列表</a></p>
+                            <p><a href="projectinfo.aspx">项目列表</a></p>
                             <p><a href="projectadd.aspx">项目添加</a></p>
                         </div>
                     </li>
@@ -46,8 +46,8 @@
                     <li>
                         <h3>业务管理</h3>
                         <div class="memberSub" style="display: none;">
-                            <p><a href="业务列表.html">业务列表</a></p>
-                            <p><a href="添加业务.html">添加业务</a></p>
+                            <p><a href="userinfo.aspx">业务列表</a></p>
+                            <p><a href="useradd.aspx">添加业务</a></p>
                         </div>
                     </li>
                     <li>
@@ -57,12 +57,41 @@
                             <p><a href="customeradd.aspx">添加客户</a></p>
                         </div>
                     </li>
+                    <li>
+                        <p class="modipassw" style="font-size: 15px;"><a href="javascript:;">修改密码</a></p>
+                    </li>
                 </ul>
             </div>
             <asp:ContentPlaceHolder ID="Content" runat="server">
             </asp:ContentPlaceHolder>
         </div>
     </div>
+
+    <!--遮罩-->
+    <div class="mask hide"></div>
+    <!-- 修改 -->
+    <div class="maskfloat stuffFloat hide">
+        <div class="title">修改密码</div>
+        <div class="modofyname">
+            <div class="groupItem">
+                <span>旧密码：</span>
+                <input type="password" id="oldPwd" />
+            </div>
+            <div class="groupItem">
+                <span>新密码：</span>
+                <input type="password" id="newPwd" />
+            </div>
+            <div class="groupItem">
+                <span>确认密码：</span>
+                <input type="password" id="renewPwd" />
+            </div>
+            <div class="addProbtn">
+                <span class="surebtn stuffsure editpwd">确定</span>
+                <span class="cancelbtn stuffCal">取消</span>
+            </div>
+        </div>
+    </div>
+
     <script src="/skin/webjs/jquery-1.8.3.min.js"></script>
     <%--<script src="/skin/webjs/jquery-1.12.2.min.js"></script>--%>
     <script src="/skin/webjs/index.js"></script>
@@ -70,6 +99,14 @@
     <script src="/skin/layer/layer.js"></script>
     <script src="/Web/js/tool.js"></script>
     <script src="js/index.js"></script>
+    <script>
+        var url = location.pathname;
+        $(".memberNav a").each(function () {
+            var $this = $(this);
+            if (url.indexOf($this.attr("href")) > -1)
+                $this.parent().addClass("cur").parent().prev().click();
+        });
+    </script>
     <asp:ContentPlaceHolder ID="Foot" runat="server">
     </asp:ContentPlaceHolder>
 </body>

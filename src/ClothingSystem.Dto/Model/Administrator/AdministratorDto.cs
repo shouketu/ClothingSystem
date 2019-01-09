@@ -17,7 +17,7 @@ namespace ClothingSystem.Dto.Model
         public int Id { get; set; }
 
         /// <summary>
-        /// 密码（官方）
+        /// 密码（密文）
         /// </summary>
         public string AdminPwd { get; set; }
 

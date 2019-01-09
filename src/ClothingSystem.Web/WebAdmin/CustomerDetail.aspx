@@ -7,7 +7,7 @@
 <asp:Content ContentPlaceHolderID="Content" runat="server">
     <div class="memberRight">
         <div class="memberrightCon">
-            <p class="currentPosition">客户详细资料</p>
+            <p class="currentPosition">当前位置：管理中心 > 客户详细信息</p>
             <div class="addProject customerline">
                 <div class="addItem">
                     <span class="Item">姓名：</span>
