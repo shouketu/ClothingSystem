@@ -26,7 +26,7 @@
     processSearch();
 
     // 添加或修改
-    $(".sureCustomer").on("click", function () {
+    var submitSaveProcess = function () {
         var id = $("#customerId").val();
         var date = $("[lay=date]").val();
         var amount = $("#customerAmount").val();
@@ -55,13 +55,19 @@
         }
         else {
             $lsjHttp.userPost("/api/ConsumptionRecrod/Add", model, function (data) {
-                if (data.Data)
-                {
+                if (data.Data) {
                     data.PageIndex = 1;
                     processSearch();
                 }
             });
         }
+    };
+    $(".formCoustomer").on("submit", function () {
+        submitSaveProcess();
+        return false;
+    });
+    $(".sureCustomer").on("click", function () {
+        submitSaveProcess();
     });
 
     // 删除

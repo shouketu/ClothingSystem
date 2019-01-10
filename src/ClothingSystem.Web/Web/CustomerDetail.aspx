@@ -114,6 +114,7 @@
                     <span class="cancelbtn resetCustomer">重置</span>
                 </div>
             </div>
+            <button type="submit" style="display:none;"></button>
         </form>
     </div>
 

@@ -68,8 +68,8 @@
     <script src="/skin/webjs/index.js"></script>
     <script src="/skin/layui/layui.js"></script>
     <script src="/skin/layer/layer.js"></script>
-    <script src="js/tool.js"></script>
-    <script src="js/index.js"></script>
+    <script src="/web/js/tool.js"></script>
+    <script src="/web/js/index.js"></script>
     <asp:ContentPlaceHolder ID="Foot" runat="server">
     </asp:ContentPlaceHolder>
 </body>

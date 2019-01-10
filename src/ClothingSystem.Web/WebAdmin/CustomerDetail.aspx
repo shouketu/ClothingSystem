@@ -102,7 +102,7 @@
                 </div>
                 <div class="modMoney">
                     <span class="customerSpan">消费金额：</span>
-                    <input class="projectnameInp" type="text" id="customerAmount" />
+                    <input class="projectnameInp" type="number" id="customerAmount" />
                 </div>
                 <div class="modMark">
                     <span class="customerSpan">备注：</span>
@@ -114,6 +114,7 @@
                     <span class="cancelbtn resetCustomer">重置</span>
                 </div>
             </div>
+            <button type="submit" style="display:none;"></button>
         </form>
     </div>
 

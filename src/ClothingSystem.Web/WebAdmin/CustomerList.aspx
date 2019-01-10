@@ -74,15 +74,15 @@
                 </div>
                 <div class="groupItem">
                     <span>进货折扣：</span>
-                    <input class="custmCost" type="text" name="PurchaseDiscount" />
+                    <input class="custmCost" type="number" name="PurchaseDiscount" />
                 </div>
                 <div class="groupItem">
                     <span>首批款项：</span>
-                    <input class="custmFistMy" type="text" name="FirstPayment" />
+                    <input class="custmFistMy" type="number" name="FirstPayment" />
                 </div>
                 <div class="groupItem">
                     <span>发货款项：</span>
-                    <input class="custmSendpro" type="text" name="ShipmentPayment" />
+                    <input class="custmSendpro" type="number" name="ShipmentPayment" />
                 </div>
                 <div class="groupItem">
                     <span>签约经理：</span>

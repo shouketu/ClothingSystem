@@ -24,15 +24,15 @@
                     </div>
                     <div class="addItem">
                         <span>进货折扣：</span>
-                        <input class="addProName" type="text" placeholder="请输入进货折扣" name="PurchaseDiscount"  />
+                        <input class="addProName" type="number" placeholder="请输入进货折扣" name="PurchaseDiscount"  />
                     </div>
                     <div class="addItem">
                         <span>首批款项：</span>
-                        <input class="addProName" type="text" placeholder="请输入首批款项" name="FirstPayment"  />
+                        <input class="addProName" type="number" placeholder="请输入首批款项" name="FirstPayment"  />
                     </div>
                     <div class="addItem">
                         <span>发货款项：</span>
-                        <input class="addProName" type="text" placeholder="请输入发货款项" name="ShipmentPayment"  />
+                        <input class="addProName" type="number" placeholder="请输入发货款项" name="ShipmentPayment"  />
                     </div>
                     <div class="addItem">
                         <span>签约经理：</span>

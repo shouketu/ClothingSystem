@@ -288,6 +288,7 @@
     <Content Include="skin\layui\font\iconfont.eot" />
     <Content Include="skin\layui\font\iconfont.ttf" />
     <Content Include="skin\layui\font\iconfont.woff" />
+    <None Include="Properties\PublishProfiles\clothingsystem.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

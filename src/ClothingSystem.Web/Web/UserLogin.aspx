@@ -47,8 +47,8 @@
 </body>
 <script src="/skin/webjs/jquery-1.12.2.min.js"></script>
 <script src="/skin/webjs/index.js"></script>
-<script src="js/tool.js"></script>
-<script src="js/login.js"></script>
+<script src="/web/js/tool.js"></script>
+<script src="/web/js/login.js"></script>
 <script src="/skin/layer/layer.js"></script>
 
 </html>
