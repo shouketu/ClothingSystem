@@ -76,9 +76,22 @@
         return false;
     });
 
+    var checkModel = function (model) {
+        if (!model.Name) {
+            layer.msg("姓名不能为空");
+            return false;
+        } else if (!model.JoinTime) {
+            layer.msg("请选择加入日期");
+            return false;
+        }
+        return true;
+    };
+
     // 添加
     var submitProcess = function () {
         var model = $lsjTool.formToModel($(".formCustomer"));
+        if (!checkModel(model))
+            return;
         $lsjHttp.adminPost("/api/CustomerInfo/Add", model, function (res) {
             if (res.Data) {
                 location.href = "customerlist.aspx";
@@ -108,6 +121,8 @@
     });
     var submitEditProcess = function () {
         var model = $lsjTool.formToModel($(".formEditCustomer"));
+        if (!checkModel(model))
+            return;
         $lsjHttp.adminPost("/api/CustomerInfo/Edit", model, function (res) {
             if (res.Data) {
                 processSearch();

@@ -94,7 +94,7 @@
     // 修改密码
     var submitEditPwdProcess = function () {
         var model = $lsjTool.formToModel($(".formEditUserPwd"));
-        $lsjHttp.adminPost("/api/UserInfo/ModifyPPassword", model, function (res) {
+        $lsjHttp.adminPost("/api/UserInfo/ModifyPassword", model, function (res) {
             if (res.Data) {
                 processSearch();
             }

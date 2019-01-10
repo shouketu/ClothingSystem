@@ -131,6 +131,7 @@ var $lsjPage = (function () {
                 laypage.render({
                     elem: ele,
                     count: total,
+                    curr: data.PageIndex,
                     layout: ['count', 'prev', 'page', 'next', 'limit'/*, 'refresh', 'skip'*/],
                     jump: function (obj) {
                         data.PageSize = obj.limit;

@@ -199,7 +199,7 @@ namespace ClothingSystem.Service.Impl
             return _userInfoDal.Update(_user.UserId, pwd) > 0;
         }
 
-        public bool ModifyPPassword(UpdatePwdDto model)
+        public bool ModifyPassword(UpdatePwdDto model)
         {
             if (model == null || model.UserId <= 0)
                 Exception("Update.ModifyPPassword", "修改用户不存在");

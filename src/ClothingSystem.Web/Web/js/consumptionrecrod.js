@@ -32,6 +32,14 @@
         var amount = $("#customerAmount").val();
         var remark = $("#customerRemark").val();
 
+        if (!date) {
+            layer.msg("请选择日期");
+            return;
+        } else if (!amount) {
+            layer.msg("请填写金额");
+            return;
+        }
+
         var model = {};
         model.Id = id;
         model.CustomerInfoId = cid;

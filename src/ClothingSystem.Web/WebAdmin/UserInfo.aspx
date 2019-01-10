@@ -92,7 +92,7 @@
                 </div>
                 <div class="groupItem">
                     <span>密码：</span>
-                    <input class="busPassword" name="UserPwdText" type="text" />
+                    <input name="UserPwdText" type="text" />
                 </div>
                 <div class="addProbtn">
                     <span class="surebtn busSureBtn" indexflag="">确定</span>

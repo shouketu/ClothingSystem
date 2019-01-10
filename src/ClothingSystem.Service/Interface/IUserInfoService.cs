@@ -75,7 +75,7 @@ namespace ClothingSystem.Service.Interface
         /// </summary>
         /// <param name="model">更改对象</param>
         /// <returns></returns>
-        bool ModifyPPassword(UpdatePwdDto model);
+        bool ModifyPassword(UpdatePwdDto model);
 
         /// <summary>
         /// 批量删除

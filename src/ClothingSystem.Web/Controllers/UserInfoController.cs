@@ -85,9 +85,9 @@ namespace ClothingSystem.Web.Controllers
         /// <param name="model">修改对象</param>
         /// <returns></returns>
         [HttpPost]
-        public ResponseResult<bool> ModifyPPassword([FromBody]UpdatePwdDto model)
+        public ResponseResult<bool> ModifyPassword([FromBody]UpdatePwdDto model)
         {
-            return _userInfoService.ModifyPPassword(model).Success();
+            return _userInfoService.ModifyPassword(model).Success();
         }
 
         /// <summary>
