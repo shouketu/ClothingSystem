@@ -24,7 +24,7 @@ namespace ClothingSystem.Dto.Model
         /// <summary>
         /// 消费金额
         /// </summary>
-        public decimal Amount { get; set; }
+        public string Amount { get; set; }
 
         /// <summary>
         /// 备注

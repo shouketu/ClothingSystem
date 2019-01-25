@@ -38,7 +38,8 @@
     };
 
     res.checkDate = function (val) {
-        return isNaN(val) && !isNaN(Date.parse(val));
+        var d = Date.parse(val);
+        return isNaN(val) && !isNaN(d) && d > 0;
     };
 
     res.modelSetForm = function ($form, model) {

@@ -49,7 +49,7 @@ namespace ClothingSystem.DAL.Impl
             if (search.GroupId.HasValue)
                 where += " and GroupId=@GroupId";
             if (!string.IsNullOrEmpty(search.Name))
-                where += " and Name like @Name";
+                where += " and (Name like @Name or AuthAddress like @Name)";
             var order = "order by jointime desc";
             var param = new { Name = $"%{search.Name}%", search.UserId, search.GroupId };
             return SearchPage<CustomerInfoFullDto>(search, where, order, "CustomerInfo", param: param);

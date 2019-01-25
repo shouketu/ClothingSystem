@@ -35,17 +35,17 @@ namespace ClothingSystem.Dto.Model
         /// <summary>
         /// 进货折扣
         /// </summary>
-        public decimal PurchaseDiscount { get; set; }
+        public string PurchaseDiscount { get; set; }
 
         /// <summary>
         /// 首批款项
         /// </summary>
-        public decimal FirstPayment { get; set; }
+        public string FirstPayment { get; set; }
 
         /// <summary>
         /// 发货款项
         /// </summary>
-        public decimal ShipmentPayment { get; set; }
+        public string ShipmentPayment { get; set; }
 
         /// <summary>
         /// 签约经理

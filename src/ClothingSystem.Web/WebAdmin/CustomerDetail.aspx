@@ -102,7 +102,7 @@
                 </div>
                 <div class="modMoney">
                     <span class="customerSpan">消费金额：</span>
-                    <input class="projectnameInp" type="number" id="customerAmount" />
+                    <input class="projectnameInp" type="text" id="customerAmount" />
                 </div>
                 <div class="modMark">
                     <span class="customerSpan">备注：</span>
