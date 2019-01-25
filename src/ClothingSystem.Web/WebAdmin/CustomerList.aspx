@@ -20,7 +20,7 @@
                     </div>
                     <form class="customerSearch">
                         <div class="searchMember">
-                            <span>用户搜索</span>
+                            <span>姓名/授权地址搜索</span>
                             <input class="membertext" type="text" />
                             <button type="submit" class="memberbtn">搜索</button>
                         </div>

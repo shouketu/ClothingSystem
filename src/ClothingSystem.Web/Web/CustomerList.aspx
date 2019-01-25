@@ -8,7 +8,7 @@
                 <div class="searchItem clearfix">
                     <form class="customerSearch">
                         <div class="searchMember">
-                            <span>用户搜索</span>
+                            <span>姓名/授权地址搜索</span>
                             <input class="membertext" type="text" />
                             <button class="memberbtn" type="submit">搜索</button>
                         </div>
